@@ -30,7 +30,6 @@ def stepping(xn, mn, pos):
         else:
             xn[i] = 0
 
-
 impulse(imp, np.min(n), 2)
 stepping(step, np.min(n), -2)
 ramping(ramp, np.min(n), 2)
