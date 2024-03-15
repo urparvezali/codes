@@ -1,0 +1,29 @@
+{
+	"": {
+		"scope": "cpp,cxx",
+		"prefix": "segmentedsieve",
+		"body": [
+		  "vector<ll> segmentedSieve(ll L, ll R){",
+		  "	ll lim = sqrt(R);",
+		  "	vbl mark(lim + 1, false);",
+		  "	vector<ll> primes;",
+		  "	for (ll i = 2; i <= lim; ++i)",
+		  "		if (!mark[i]){",
+		  "			primes.push_back(i);",
+		  "			for (ll j = i * i; j <= lim; j += i)",
+		  "				mark[j] = true;",
+		  "		}",
+		  "	vbl isPrime(R - L + 1, true);",
+		  "	for (ll p : primes)",
+		  "		for (ll j = max(p * p, (L + p - 1) / p * p); j <= R; j += p)",
+		  "			isPrime[j - L] = false;",
+		  "	vector<ll> result;",
+		  "	for (ll i = L; i <= R; ++i)",
+		  "		if (isPrime[i - L])",
+		  "			result.push_back(i);",
+		  "	return result;",
+		  "}"
+		],
+		"description": ""
+	  }
+}

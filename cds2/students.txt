@@ -1,0 +1,8 @@
+Name : Parvez
+Roll : 210623
+Marks : 98.00 81.00 
+GPA : 4.00
+Name : Asif
+Roll : 210602
+Marks : 87.00 79.00 
+GPA : 3.88

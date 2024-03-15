@@ -1,0 +1,1 @@
+{"name":"Local: doublechar","url":"/home/parvez/Documents/cds/solvergreen2/doublechar.cpp","tests":[{"id":1693049783385,"input":"2\nman\nmama","output":"man --- not double char\nmama --- double char\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/parvez/Documents/cds/solvergreen2/doublechar.cpp","group":"local","local":true}

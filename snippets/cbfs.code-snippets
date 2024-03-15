@@ -1,0 +1,25 @@
+{
+	"": {
+		"scope": "cpp,cxx",
+		"prefix": "bfs",
+		"body": [
+		  "void bfs(ll s, vbl &vs, vvll &v){",
+		  "	queue<ll> q;",
+		  "	q.push(s);",
+		  "	vs[s] = 1;",
+		  "	while (!q.empty()){",
+		  "		ll curr = q.front();",
+		  "		q.pop();",
+		  "		cout << curr << ' ';",
+		  "		for (ll sib : v[curr]){",
+		  "			if (!vs[sib]){",
+		  "				q.push(sib);",
+		  "				vs[sib] = 1;",
+		  "			}",
+		  "		}",
+		  "	}",
+		  "}"
+		],
+		"description": ""
+	  }
+}

@@ -1,0 +1,1 @@
+{"name":"Local: numberComplement","url":"/home/parvez/Documents/cds/numberComplement.rs","tests":[{"id":1704719434173,"input":"5\n1\n2147483647","output":"2\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/parvez/Documents/cds/numberComplement.rs","group":"local","local":true}

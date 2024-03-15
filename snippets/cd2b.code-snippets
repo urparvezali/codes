@@ -1,0 +1,20 @@
+{
+	"": {
+		"scope": "cpp,cxx",
+		"prefix": "d2b",
+		"body": [
+		  "vector<ll> d2b(ll n){",
+		  "	vector<ll> b;",
+		  "	ll r;",
+		  "	while (n != 0){",
+		  "		r = n & 1;",
+		  "		b.push_back(r);",
+		  "		n >>= 1;",
+		  "	}",
+		  "	reverse(all(b));",
+		  "	return b;",
+		  "}"
+		],
+		"description": ""
+	  }
+}

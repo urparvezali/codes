@@ -1,0 +1,11 @@
+mod floyds;
+mod merge_sort;
+mod linear_search;
+mod bubble_sort;
+mod binary_sarch;
+mod queue;
+mod subset;
+mod pattern;
+mod knapsack;
+mod nquens;
+mod tower;

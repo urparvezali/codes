@@ -1,0 +1,16 @@
+{
+	"": {
+		"scope": "cpp,cxx",
+		"prefix": "dfs",
+		"body": [
+		  "void dfs(ll s, vbl &vs, vvll &v){",
+		  "	if (vs[s])",
+		  "		return;",
+		  "	vs[s] = 1;",
+		  "	for (auto &c : v[s])",
+		  "		dfs(c, vs, v);",
+		  "}"
+		],
+		"description": ""
+	  }
+}
