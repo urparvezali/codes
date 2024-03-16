@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.pylab as plb
 
 def return_sig(l,r,n):
 	lst = []
@@ -11,7 +12,7 @@ def return_sig(l,r,n):
 	return np.array(lst),n
 
 
-sampling_rate = 500
+sampling_rate = 50
 l = np.linspace(-5,6,sampling_rate)
 sig,n = return_sig(-2,2,l)
 ## DFT
@@ -23,7 +24,7 @@ idft_res = np.fft.ifft(dft_res)
 
 
 plt.subplot(3,1,1)
-plt.plot(n,sig)
+plt.stem(n,sig)
 plt.grid(True)
 
 plt.subplot(3,1,2)
