@@ -1,0 +1,1 @@
+{"name":"Local: lengthoflongestcommonsubsequence","url":"/home/parvez/Documents/cds/lengthoflongestcommonsubsequence.rs","tests":[{"id":1711666677828,"input":"1\nacebcd\ncaedbcd","output":"aeb"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/parvez/Documents/cds/lengthoflongestcommonsubsequence.rs","group":"local","local":true}
