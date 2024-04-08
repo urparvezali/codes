@@ -1,1 +1,0 @@
-{"name":"Local: houseHeater","url":"/home/parvez/Documents/cds/houseHeater.rs","tests":[{"id":1704636298671,"input":"9\n2\n3","output":"9\n-1\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/parvez/Documents/cds/houseHeater.rs","group":"local","local":true}

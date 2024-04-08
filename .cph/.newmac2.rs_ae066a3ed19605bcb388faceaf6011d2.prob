@@ -1,1 +1,0 @@
-{"name":"Local: newmac2","url":"/home/parvez/Documents/cds/newmac2.rs","tests":[{"id":1706774604929,"input":"","output":""},{"id":1706774870575,"input":"10\n1 2 3 4 5 6 7 8 9 10\nsdfsd dsdf\n3.14 -232\nsofsjf sdlkfjsd","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/parvez/Documents/cds/newmac2.rs","group":"local","local":true}

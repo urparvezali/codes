@@ -1,1 +1,0 @@
-{"name":"Local: heaters","url":"/home/parvez/Documents/cds/heaters.rs","tests":[{"id":1704699774778,"input":"1 2 3\n2\n1 2 3 4\n1 4\n1 5\n2","output":"1\n1\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/parvez/Documents/cds/heaters.rs","group":"local","local":true}
