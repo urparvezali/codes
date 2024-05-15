@@ -16,20 +16,39 @@ constexpr ll mod=1000000007;
 
 inline void Parvez(){ ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0); }
 template<class T>inline istream& operator>>(istream& in,vector<T>& v){ for(T& x:v){ in>>x; }return in; }template<class T>inline ostream& operator<<(ostream& out,vector<T>& v){ for(ll i=0;i<v.size()-1;i++){ out<<v[i]<<' '; }out<<v[v.size()-1];return out; }
-inline void input(){}template<class H,class... T>inline void input(H&& h,T &&...t){ cin>>h;input(forward<T>(t)...); }inline void print(){ cout<<endl; }template<class H,class... T>inline void print(H&& h,T &&...t){ cout<<h;if(sizeof...(t)!=0)cout<<' ';print(forward<T>(t)...); }
-
-ll law(ll n){
-	ll ans=1;
-	for(ll i=1; i <= n; i++){
-		ans = ans * (n+i)/i;
-	}
-	return ans/(n+1);
-}
-
 
 
 void solution(ll& T){
-	print(law(19),'\n',INT_MAX);
+	ll n; cin>>n;
+	vll v(n); cin>>v;
+	// if(n==1){
+	// 	cout<<0<<endl;return;
+	// } else if(n==0){
+	// 	cout<<0<<endl;return;
+	// }
+	// ll sum=0;sum+=accumulate(all(v),0LL);
+	// ll d1,d2;
+	// if(sum%n==0){
+	// 	d1=sum/n;
+	// 	d2=sum/n;
+	// } else{
+	// 	d1=sum/n;
+	// 	d2=d1+1;
+	// }
+	// ll ans1=0,ans2=0;
+	// for(auto& x:v) ans1+=abs(x-d1);
+	// for(auto& x:v) ans2+=abs(x-d2);
+	// cout<<min(ans1,ans2)<<endl;
+
+	sort(all(v));
+	ll mid = (n)/2;
+	// cout<<v<<endl;
+	// cout<<mid<<endl;
+
+	ll ans = 0;
+	for(auto &i: v) ans+=abs(i-v[mid]);
+	cout<<ans<<endl;
+	
 }
 
 signed main(){

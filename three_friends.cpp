@@ -18,24 +18,28 @@ inline void Parvez(){ ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0); }
 template<class T>inline istream& operator>>(istream& in,vector<T>& v){ for(T& x:v){ in>>x; }return in; }template<class T>inline ostream& operator<<(ostream& out,vector<T>& v){ for(ll i=0;i<v.size()-1;i++){ out<<v[i]<<' '; }out<<v[v.size()-1];return out; }
 inline void input(){}template<class H,class... T>inline void input(H&& h,T &&...t){ cin>>h;input(forward<T>(t)...); }inline void print(){ cout<<endl; }template<class H,class... T>inline void print(H&& h,T &&...t){ cout<<h;if(sizeof...(t)!=0)cout<<' ';print(forward<T>(t)...); }
 
-ll law(ll n){
-	ll ans=1;
-	for(ll i=1; i <= n; i++){
-		ans = ans * (n+i)/i;
-	}
-	return ans/(n+1);
-}
 
 
 
 void solution(ll& T){
-	print(law(19),'\n',INT_MAX);
+	ll n,p,m; input(n,p,m);
+	vll v(n); input(v);
+	sort(all(v));
+	ll ans=0;
+	ll sum=0;
+	for(ll i=0; i < n; i++){
+		sum+=v[i];
+		if(sum<=m) ans++;
+		else break;
+	}
+	cout<<"Case "<<T<<": "<<min(p,ans)<<endl;
+
 }
 
 signed main(){
 	Parvez();
 	ll TT=1;
-	// cin>>TT;
+	cin>>TT;
 	for(ll T=1;T<=TT;T++)
 		solution(T);
 	return 0;

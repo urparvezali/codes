@@ -24,7 +24,7 @@ fn solve(scan: &mut Scanner, case: usize) {
             if cnt >= k && m == st1.len() {
                 ans += 1;
             }
-            println!("{:?} {}",st1,cnt);
+            println!("{:?} {}", st1, cnt);
             continue;
         }
         if let Some(&res) = st2.get(&a[i]) {
@@ -38,7 +38,7 @@ fn solve(scan: &mut Scanner, case: usize) {
         if cnt >= k {
             ans += 1;
         }
-        println!("{:?} {}",st1,cnt);
+        println!("{:?} {}", st1, cnt);
     }
     ans.println();
 }

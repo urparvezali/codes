@@ -1,4 +1,6 @@
-import scipy.stats
+import wave
+w = wave.open('wave.wav','r')
 
-
-print(scipy.stats.norm.pdf(0.05))
+for i in range(w.getnframes()):
+	frame = w.readframes(i)
+	print(frame)
