@@ -8,6 +8,8 @@ mod D_Inaccurate_Subsequence_Search;
 mod A_Nene_s_Game;
 mod numRescueBoats;
 mod triangle;
+mod C_Beautiful_Triple_Pairs;
+mod A_Bazoka_and_Mocha_s_Array;
 
 fn main() {
 	println!("Hi");

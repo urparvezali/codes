@@ -1,1 +1,0 @@
-{"name":"Local: d","url":"/home/parvez/Documents/cds/solvergreen2/d.cpp","tests":[{"id":1693043566838,"input":"9 2 10 10 1 9 7 9 9 7 9 4 10 1 9 9 9 6 9 4 9 8","output":"1-2, 4, 6-10"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/parvez/Documents/cds/solvergreen2/d.cpp","group":"local","local":true}

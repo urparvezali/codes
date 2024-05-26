@@ -1,1 +1,0 @@
-{"name":"Local: merge","url":"/home/parvez/Documents/cds/dsa_labs/merge.py","tests":[{"id":1704875411660,"input":"84 37 4 384 48383 37374 4849 9373 38374","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/parvez/Documents/cds/dsa_labs/merge.py","group":"local","local":true}

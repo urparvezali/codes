@@ -22,13 +22,13 @@ inline void input(){}template<class H,class... T>inline void input(H&& h,T &&...
 
 
 void solution(ll &T){
-	print("HELLO");
+	
 }
 
 signed main(){
 	Parvez();
 	ll TT=1;
-	// cin>>TT;
+	cin>>TT;
 	for(ll T=1;T<=TT;T++)
 		solution(T);
 	return 0;

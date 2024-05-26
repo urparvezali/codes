@@ -1,0 +1,16 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP16F877A -DL -O11111114 -fo8 -N"C:\users\parvez\Documents\cds\micro\multiplexer.mcppi" -SP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\" -SP"C:\users\parvez\Documents\cds\micro\" -IP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\" -IP"C:\users\parvez\Documents\cds\micro\" "multiplexer.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl"	 
+hint: 0	1139	Available RAM: 352 [bytes], Available ROM: 8192 [bytes]	 
+diagnostics: 0	122	Compilation Started	P16F877A.c
+diagnostics: 660	123	Compiled Successfully	P16F877A.c
+diagnostics: 0	122	Compilation Started	__Lib_Delays.c
+diagnostics: 123	123	Compiled Successfully	__Lib_Delays.c
+diagnostics: 0	122	Compilation Started	multiplexer.c
+diagnostics: 500	123	Compiled Successfully	multiplexer.c
+hint: 3	1164	Variable 'mplx' has been eliminated by optimizer	multiplexer.c
+diagnostics: 0	127	All files Compiled in 222 ms	 
+hint: 0	1144	Used RAM (bytes): 12 (3%)  Free RAM (bytes): 340 (97%)	Used RAM (bytes): 12 (3%)  Free RAM (bytes): 340 (97%)
+hint: 0	1144	Used ROM (program words): 1454 (18%)  Free ROM (program words): 6738 (82%)	Used ROM (program words): 1454 (18%)  Free ROM (program words): 6738 (82%)
+diagnostics: 0	125	Project Linked Successfully	multiplexer.mcppi
+diagnostics: 0	128	Linked in 32 ms	 
+diagnostics: 0	129	Project 'multiplexer.mcppi' completed: 680 ms	 
+diagnostics: 0	103	Finished successfully: 18 May 2024, 14:48:20	multiplexer.mcppi
