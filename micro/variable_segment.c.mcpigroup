@@ -1,0 +1,6 @@
+[PROJECTS]
+Count=2
+Project0=motor.mcppi
+Project1=variable_segment.mcppi
+[ActiveProject]
+Index=1

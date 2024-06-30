@@ -1,6 +1,7 @@
-import wave
-w = wave.open('wave.wav','r')
-
-for i in range(w.getnframes()):
-	frame = w.readframes(i)
-	print(frame)
+for _ in range(int(input())):
+	s=input()
+	s=s.capitalize()
+	if s=="PUST":
+		print("YES")
+	else:
+		print("NO")

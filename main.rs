@@ -4,12 +4,9 @@
 #![allow(unused_macros)]
 #![allow(unused_mut)]
 mod z;
-mod D_Inaccurate_Subsequence_Search;
-mod A_Nene_s_Game;
-mod numRescueBoats;
-mod triangle;
-mod C_Beautiful_Triple_Pairs;
-mod A_Bazoka_and_Mocha_s_Array;
+mod Static_Range_Minimum_Queries;
+mod C_1_Magnitude_Easy_Version;
+
 
 fn main() {
 	println!("Hi");
