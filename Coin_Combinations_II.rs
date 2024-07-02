@@ -5,8 +5,8 @@ fn solve(scan: &mut Scanner, case: usize) {
     let v: Vec<usize> = scan.vec(&n);
     let mut dp = vec![0 as usize; t + 1];
 
-    for i in 1..t + 1 {
-        for j in 0..n {
+    for j in 0..n {
+        for i in 1..t + 1 {
             if i as isize - v[j] as isize >= 0 {
                 if i as isize - v[j] as isize == 0 {
                     dp[i] = (dp[i] + dp[i - v[j]] + 1) % MOD;
@@ -14,7 +14,6 @@ fn solve(scan: &mut Scanner, case: usize) {
                     dp[i] = (dp[i] + dp[i - v[j]]) % MOD;
                 }
             }
-            // dp.println();
         }
     }
     dp[t].println();
