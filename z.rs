@@ -1,14 +1,8 @@
-use std::io::{stdin, BufRead};
+struct LinkedList {
+    data: i32,
+    next: Option<Box<LinkedList>>,
+}
 
 fn main() {
-    let v = stdin()
-        .lines()
-        .next()
-        .unwrap()
-        .unwrap()
-        .trim()
-        .split_whitespace()
-        .map(|w| w.parse().unwrap())
-        .collect::<Vec<isize>>();
-	// groupby in rust is not available
+	
 }

@@ -23,40 +23,38 @@ inline void input(){}template<class H, class... T>inline void input(H&& h, T &&.
 
 void solution(ll& T){
 	ll n, m; input(n, m);
-	vll a(n), b(n), c(m); input(a, b, c);
-	vpll v(n);
-	ll mn = *min_element(all(a));
-	for (ll i = 0; i < n; i++){
-		v[i] = { a[i]-b[i],a[i] };
+
+	vll a(n), b(n), c(m);
+	input(a, b, c);
+	ll mx = *max_element(all(a)) + 1;
+
+	vll best(mx, LLONG_MAX);
+	vll calc(mx, 0);
+
+	for (ll i = 0; i < n; ++i){
+		best[a[i]] = min(best[a[i]], a[i] - b[i]);
 	}
-	sort(all(v));
-	// for (ll i = 0; i < n; i++){
-	// 	cout<<v[i].first<<'='<<v[i].second<<",";
-	// }
-	// print();
+	for (ll v = 1; v < mx; ++v){
+		best[v] = min(best[v], best[v - 1]);
+	}
+
+	for (ll v = 1; v < mx; ++v){
+		if (v >= best[v]){
+			calc[v] = 2 + calc[v - best[v]];
+		}
+	}
+
 	ll ans = 0;
-	unordered_map<ll, ll> dp;
-	for (ll i = 0; i < m; i++){
-		if (dp.count(c[i])){
-			ans += dp[c[i]];
-			continue;
+	for (ll v : c){
+		ll cur = v;
+		if (cur >= mx){
+			ll k = (cur - mx + 1 + best[mx - 1]) / best[mx - 1];
+			ans += 2LL * k;
+			cur -= k * best[mx - 1];
 		}
-		ll local = 0;
-		for (ll j = 0; j < n; j++){
-			if (c[i]<mn){
-				break;
-			}
-			if (c[i]>=v[j].second){
-				local += (c[i]-v[j].second+v[j].first)/v[j].first;
-				c[i] -= local*v[j].first;
-			}
-		}
-		ans += local;
-		dp[c[i]] = local;
+		ans += calc[cur];
 	}
-
-	print(ans*2);
-
+	cout << ans << endl;
 }
 
 signed main(){
