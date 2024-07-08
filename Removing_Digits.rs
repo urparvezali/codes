@@ -1,18 +1,22 @@
 #![allow(unused)]
-const MOD: usize = 1000000007;
+
 fn solve(scan: &mut Scanner, case: usize) {
-    let (n, t): (usize, usize) = (scan.next(), scan.next());
-    let v: Vec<usize> = scan.vec(&n);
-    let mut dp = vec![0 as usize; t + 1];
-    dp[0] = 1;
-    for j in 0..n {
-        for i in 1..t + 1 {
-            if i as isize - v[j] as isize >= 0 {
-                dp[i] = (dp[i] + dp[i - v[j]]) % MOD;
-            }
-        }
+    let mut n: isize = scan.next();
+    let mut count: isize = 0;
+    let mut temp: isize = 0;
+
+    while n > 0 {
+        temp = n
+            .to_string()
+            .split("")
+            .filter(|f| *f != "")
+            .map(|f| f.parse::<isize>().unwrap())
+            .max()
+            .unwrap();
+        n -= temp;
+        count += 1;
     }
-    dp[t].println();
+    count.println();
 }
 
 fn main() {

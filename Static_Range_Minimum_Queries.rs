@@ -2,8 +2,15 @@
 
 fn solve(scan: &mut Scanner, case: usize) {
 	let n = scan.next::<usize>();
-	let q = scan.next::<usize>();
-	let v = scan.vec::<usize>(&n);
+	let mut q = scan.next::<usize>();
+	let v = scan.vec::<isize>(&n);
+	let st = SparseTable::new(&v);
+	while q>0 {
+		let l:usize = scan.next();
+		let r:usize = scan.next();
+		println!("{}",st.get((l-1)..r));
+		q-=1;
+	}
 	
 }
 
@@ -76,5 +83,40 @@ impl Scanner {
 				}
 			})
 			.collect()
+	}
+}
+struct SparseTable {
+	log: Vec<usize>,
+	table: Vec<Vec<isize>>,
+}
+impl SparseTable {
+	fn new(vec: &Vec<isize>) -> Self {
+		let n = vec.len();
+		let mut log = vec![0; n + 1];
+		for i in 2..=n {
+			log[i] = log[i / 2] + 1;
+		}
+		let m = log[n] + 1;
+		let mut table = vec![vec![isize::MAX; m]; n];
+		for i in 0..n {
+			table[i][0] = vec[i];
+		}
+		for j in 1..m {
+			for i in 0..n - (1 << j) + 1 {
+				table[i][j] = table[i][j - 1].min(table[i + (1 << (j - 1))][j - 1]);
+			}
+		}
+		Self { log, table }
+	}
+	fn get(&self, r: std::ops::Range<usize>) -> isize {
+		let mut l = r.start;
+		let r = r.end;
+		let mut mx = isize::MAX;
+		while l < r {
+			let R = self.log[r - l];
+			mx = mx.min(self.table[l][R]);
+			l += 1 << R;
+		}
+		mx
 	}
 }
