@@ -1,28 +1,85 @@
 #![allow(unused)]
+use std::ops::Range;
 
 fn solve(scan: &mut Scanner, case: usize) {
     let n: usize = scan.next();
-    let v: Vec<isize> = scan.vec(&n);
-
-    let mut dif = isize::MIN;
-    let mut s: isize = 0;
-
-    for &i in &v {
-        dif = dif.max(-s - i - s - i);
-        s += i;
+    let q: usize = scan.next();
+    let vec: Vec<isize> = vec![0; n];
+    let mut st = SegmentTree::new(&vec);
+    for _ in 0..q {
+        let wht: isize = scan.next();
+        if wht == 1 {
+            let l: usize = scan.next();
+            let r: usize = scan.next();
+            let v: isize = scan.next();
+            st.set(&(l..r), &v);
+        } else {
+            let i: usize = scan.next();
+            println!("{}", st.get(&i));
+        }
     }
-    if dif > 0 {
-        s += dif;
-    }
-    s.println();
+    // st.show();
 }
 
 fn main() {
     let mut scan = Scanner::new();
     let t: usize = 1;
-    let t: usize = scan.next();
+    // let t: usize = scan.next();
     (0..t).for_each(|case| solve(&mut scan, case + 1));
 }
+struct SegmentTree {
+    n: usize,
+    sz: usize,
+    tree: Vec<isize>,
+}
+impl SegmentTree {
+    fn new(vec: &Vec<isize>) -> Self {
+        let n = (1 << ((vec.len() as f64).log2().ceil() as usize));
+        let mut sz = 2 * n - 1;
+        let tree = vec![isize::default(); sz];
+        let mut st = Self { n, sz, tree };
+        st
+    }
+    fn show(&self) {
+        println!("{:?}", self.tree);
+    }
+    fn set(&mut self, r: &Range<usize>, v: &isize) {
+        self._set(r, v, 0, 0..self.n);
+    }
+    fn _set(&mut self, r: &Range<usize>, v: &isize, idx: usize, b: Range<usize>) {
+        if b.end < r.start || b.start >= r.end {
+            return;
+        }
+        if (b.start >= r.start && b.end <= r.end) {
+            self.tree[idx] += v.clone();
+            return;
+        }
+        if b.len() == 1 {
+            if b.start >= r.start && b.end <= r.end {
+                self.tree[idx] = v.clone();
+            }
+            return;
+        }
+        let m = (b.end + b.start) / 2;
+        self._set(&r, v, 2 * idx + 1, b.start..m);
+        self._set(&r, v, 2 * idx + 2, m..b.end);
+    }
+    fn get(&self, i: &usize) -> isize {
+        self._get(i, 0, 0..self.n)
+    }
+    fn _get(&self, i: &usize, idx: usize, b: Range<usize>) -> isize {
+        if b.len() == 1 {
+            return self.tree[idx];
+        }
+        let m = (b.end + b.start) / 2;
+        if *i < m {
+            return self.tree[idx] + self._get(i, 2 * idx + 1, b.start..m);
+        } else {
+            return self.tree[idx] + self._get(i, 2 * idx + 2, m..b.end);
+        }
+    }
+}
+
 trait Print {
     fn println(&self);
 }

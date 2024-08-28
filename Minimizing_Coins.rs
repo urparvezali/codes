@@ -6,16 +6,16 @@ fn solve(scan: &mut Scanner, case: usize) {
     let v: Vec<usize> = scan.vec(&n);
 
     let mut dp = vec![1e9 as usize; t + 1];
-	dp[0]=0;
+    dp[0] = 0;
     for i in 1..t + 1 {
         for j in 0..n {
             if i as isize - v[j] as isize >= 0 {
                 dp[i] = dp[i].min(dp[i - v[j]] + 1);
             }
-			dp.println();
+            dp.println();
         }
     }
-	// dp.println();
+    // dp.println();
     if dp[t] == 1e9 as usize {
         "-1".println();
     } else {

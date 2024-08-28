@@ -30,6 +30,7 @@ public:
 		while (size < n)
 			size *= 2;
 		sums.assign(2 * size, 0LL);
+		cout<<2*size<<endl;
 	}
 	void set(ll i, ll v, ll x, ll lx, ll rx){
 		if (rx - lx == 1){
@@ -58,6 +59,7 @@ public:
 };
 
 signed main(){
-	
+	segtree st(4);
+
 	return 0;
 }
