@@ -12,6 +12,7 @@ mod rob;
 mod decode_ways;
 mod coin_change;
 mod max_product;
+mod word_break;
 
 fn main() {
     

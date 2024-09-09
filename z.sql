@@ -1,3 +1,4 @@
+-- Active: 1719579663058@@127.0.0.1@1433@pubs
 select * from sysobjects;
 select name from sysobjects where xtype='U';
 select au_lname,state from authors;
@@ -13,5 +14,9 @@ select title from titles where royalty between 12 and 24;
 
 select type, avg(price) as Average from titles GROUP BY type;
 
-select * from titles;
 
+
+
+create table customer_and_suppliers(
+	cust_id varchar(6)
+)
