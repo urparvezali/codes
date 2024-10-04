@@ -5,15 +5,14 @@
 #![allow(unused_mut)]
 
 mod z;
-
-mod shortest_birdge;
-mod lis;
-mod rob;
-mod decode_ways;
-mod coin_change;
-mod max_product;
-mod word_break;
+mod ai_labs;
+mod linkedlist;
+mod A_Mocha_and_Hiking;
+mod B_Running_for_Gold;
+mod find_order;
+mod can_arrange;
+mod min_subarray;
 
 fn main() {
-    
+	println!("{:?}", "");
 }
