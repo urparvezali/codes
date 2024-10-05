@@ -7,7 +7,8 @@ impl Solution {
         let n = nums.len();
         let total: i32 = nums.iter().sum();
 		if total%p == 0 {return 0}
-		todo!()
+		
+		-1
     }
 }
 
