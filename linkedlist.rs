@@ -48,6 +48,7 @@ impl List {
         }
         self.curr = Some(raw_new_link);
     }
+    fn print_all(&self) {}
 }
 
 fn main() {
