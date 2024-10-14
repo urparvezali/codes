@@ -6,11 +6,11 @@ void main() {
      TRISB=0x00;
      PORTB=0x00;
 
-     TRISC.f0=0xff;
-     TRISC.f1=0xff;
+     TRISC.f0=1;
+     TRISC.f1=1;
 
-     portc.f0=0x00;
-     portc.f0=0x00;
+     portc.f0=0;
+     portc.f0=0;
 
 
      while(1){

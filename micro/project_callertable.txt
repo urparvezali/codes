@@ -1,0 +1,16 @@
+main
+	__CC2DW
+		____DoICP
+	init
+	get_mode
+	read_rom
+		read_int
+			EEPROM_Read
+	program_mode
+		show_led
+			Div_16x16_S
+				Div_16x16_S_L
+		write_rom
+			write_int
+				EEPROM_Write
+	run_mode
