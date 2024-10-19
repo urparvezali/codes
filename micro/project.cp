@@ -19,7 +19,7 @@ unsigned int off_time = 0;
 unsigned int channels = 0;
 
 unsigned int read_int(unsigned int add){
- return EEPROM_Read(add) | (EEPROM_Read(add+1) << 8) ;
+ return EEPROM_Read(add) | (EEPROM_Read(add+1) << 8);
 }
 void write_int(unsigned int add, unsigned int val){
  EEPROM_Write(add, (val & 0xff));
@@ -62,9 +62,9 @@ void show_led(int value){
 }
 
 void program_mode(){
- on_time=0;
- off_time=0;
- channels=0;
+ on_time = 0;
+ off_time = 0;
+ channels = 0;
 
  while (1){
 
@@ -122,17 +122,17 @@ void program_mode(){
 void run_mode(){
  unsigned int i = 0;
  unsigned int j = 0;
- portc.f2=1;
+ portc.f2 = 1;
 
- while(1){
- for(i = 0; i<channels; i++){
+ while (1){
+ for (i = 0; i<channels; i++){
  portc.f2 = 1;
  porta = i;
- for(j = 0; j<on_time; j++){
+ for (j = 0; j<on_time; j++){
  delay_ms(100);
  }
- portc.f2=0;
- for(j = 0; j<off_time; j++){
+ portc.f2 = 0;
+ for (j = 0; j<off_time; j++){
  delay_ms(1000);
  }
  }

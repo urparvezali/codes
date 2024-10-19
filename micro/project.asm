@@ -27,7 +27,7 @@ L_end_init:
 _read_int:
 
 ;project.c,20 :: 		unsigned int read_int(unsigned int add){
-;project.c,21 :: 		return EEPROM_Read(add) | (EEPROM_Read(add+1) << 8) ;
+;project.c,21 :: 		return EEPROM_Read(add) | (EEPROM_Read(add+1) << 8);
 	MOVF       FARG_read_int_add+0, 0
 	MOVWF      FARG_EEPROM_Read_Address+0
 	CALL       _EEPROM_Read+0
@@ -281,13 +281,13 @@ L_end_show_led:
 _program_mode:
 
 ;project.c,63 :: 		void program_mode(){
-;project.c,64 :: 		on_time=0;
+;project.c,64 :: 		on_time = 0;
 	CLRF       _on_time+0
 	CLRF       _on_time+1
-;project.c,65 :: 		off_time=0;
+;project.c,65 :: 		off_time = 0;
 	CLRF       _off_time+0
 	CLRF       _off_time+1
-;project.c,66 :: 		channels=0;
+;project.c,66 :: 		channels = 0;
 	CLRF       _channels+0
 	CLRF       _channels+1
 ;project.c,68 :: 		while (1){
@@ -666,11 +666,11 @@ _run_mode:
 	CLRF       run_mode_i_L0+1
 	CLRF       run_mode_j_L0+0
 	CLRF       run_mode_j_L0+1
-;project.c,124 :: 		portc.f2=1;
+;project.c,124 :: 		portc.f2 = 1;
 	BSF        PORTC+0, 2
-;project.c,126 :: 		while(1){
+;project.c,126 :: 		while (1){
 L_run_mode57:
-;project.c,127 :: 		for(i = 0; i<channels; i++){
+;project.c,127 :: 		for (i = 0; i<channels; i++){
 	CLRF       run_mode_i_L0+0
 	CLRF       run_mode_i_L0+1
 L_run_mode59:
@@ -688,7 +688,7 @@ L__run_mode85:
 ;project.c,129 :: 		porta = i;
 	MOVF       run_mode_i_L0+0, 0
 	MOVWF      PORTA+0
-;project.c,130 :: 		for(j = 0; j<on_time; j++){
+;project.c,130 :: 		for (j = 0; j<on_time; j++){
 	CLRF       run_mode_j_L0+0
 	CLRF       run_mode_j_L0+1
 L_run_mode62:
@@ -716,16 +716,16 @@ L_run_mode65:
 	DECFSZ     R11+0, 1
 	GOTO       L_run_mode65
 	NOP
-;project.c,130 :: 		for(j = 0; j<on_time; j++){
+;project.c,130 :: 		for (j = 0; j<on_time; j++){
 	INCF       run_mode_j_L0+0, 1
 	BTFSC      STATUS+0, 2
 	INCF       run_mode_j_L0+1, 1
 ;project.c,132 :: 		}
 	GOTO       L_run_mode62
 L_run_mode63:
-;project.c,133 :: 		portc.f2=0;
+;project.c,133 :: 		portc.f2 = 0;
 	BCF        PORTC+0, 2
-;project.c,134 :: 		for(j = 0; j<off_time; j++){
+;project.c,134 :: 		for (j = 0; j<off_time; j++){
 	CLRF       run_mode_j_L0+0
 	CLRF       run_mode_j_L0+1
 L_run_mode66:
@@ -754,14 +754,14 @@ L_run_mode69:
 	GOTO       L_run_mode69
 	NOP
 	NOP
-;project.c,134 :: 		for(j = 0; j<off_time; j++){
+;project.c,134 :: 		for (j = 0; j<off_time; j++){
 	INCF       run_mode_j_L0+0, 1
 	BTFSC      STATUS+0, 2
 	INCF       run_mode_j_L0+1, 1
 ;project.c,136 :: 		}
 	GOTO       L_run_mode66
 L_run_mode67:
-;project.c,127 :: 		for(i = 0; i<channels; i++){
+;project.c,127 :: 		for (i = 0; i<channels; i++){
 	INCF       run_mode_i_L0+0, 1
 	BTFSC      STATUS+0, 2
 	INCF       run_mode_i_L0+1, 1
