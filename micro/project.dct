@@ -245,6 +245,8 @@ intf
 intf_bit
 irp
 irp_bit
+led0
+led1
 longint2double
 longword2double
 main
@@ -471,7 +473,6 @@ setfdz32
 setfov32
 setfun32
 setiov3224
-show_led
 smp
 smp_bit
 spbrg

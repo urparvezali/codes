@@ -7,10 +7,15 @@ main
 		read_int
 			EEPROM_Read
 	program_mode
-		show_led
-			Div_16x16_S
-				Div_16x16_S_L
+		led0
+			Div_16X16_U
+		led1
+			Div_16X16_U
 		write_rom
 			write_int
 				EEPROM_Write
 	run_mode
+		led0
+			Div_16X16_U
+		led1
+			Div_16X16_U
