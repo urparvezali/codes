@@ -2,10 +2,10 @@
 hint: 0	1139	Available RAM: 352 [bytes], Available ROM: 8192 [bytes]	 
 diagnostics: 0	122	Compilation Started	WHAT.c
 diagnostics: 5	123	Compiled Successfully	WHAT.c
-diagnostics: 0	127	All files Compiled in 113 ms	 
+diagnostics: 0	127	All files Compiled in 134 ms	 
 hint: 0	1144	Used RAM (bytes): 2 (1%)  Free RAM (bytes): 350 (99%)	Used RAM (bytes): 2 (1%)  Free RAM (bytes): 350 (99%)
 hint: 0	1144	Used ROM (program words): 2 (1%)  Free ROM (program words): 8190 (99%)	Used ROM (program words): 2 (1%)  Free ROM (program words): 8190 (99%)
 diagnostics: 0	125	Project Linked Successfully	WHAT.mcppi
-diagnostics: 0	128	Linked in 18 ms	 
-diagnostics: 0	129	Project 'WHAT.mcppi' completed: 156 ms	 
-diagnostics: 0	103	Finished successfully: 28 Jun 2024, 17:39:35	WHAT.mcppi
+diagnostics: 0	128	Linked in 20 ms	 
+diagnostics: 0	129	Project 'WHAT.mcppi' completed: 179 ms	 
+diagnostics: 0	103	Finished successfully: 20 Oct 2024, 01:54:16	WHAT.mcppi

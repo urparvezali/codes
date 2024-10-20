@@ -1,14 +1,14 @@
 #line 1 "C:/users/parvez/Documents/cds/micro/project.c"
-
-
 void init(){
+ ADCON1 = 0x07;
  trisb = trisc = 0x00;
- trisd = 0b11110000;
+ trisd = 0xf0;
  trisa = 0b000000;
  trise = 0b000;
 
- portb = portc = portd = 0x00;
- porta = 0b000000;
+ portb = portc = 0x00;
+ portd = 0b000000;
+ porta = 0x00;
  porte = 0b000;
 }
 
@@ -167,7 +167,7 @@ void run_mode(){
  unsigned int i = 0;
  unsigned int j = 0;
  unsigned int k = 0;
- portc.f2 = 1;
+ porte = 0b111;
 
  while (1){
  for (i = 0; i<channels; i++){
@@ -180,7 +180,7 @@ void run_mode(){
  led1(i+1);
  }
  }
- portc.f2 = 0;
+ porta.f4 = 0;
  for (j = 0; j<off_time; j++){
  for (k = 0; k < 50; k++){
  led0(off_time-j);

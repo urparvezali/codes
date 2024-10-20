@@ -1,25 +1,28 @@
 
 _init:
 
-;project.c,3 :: 		void init(){
-;project.c,4 :: 		trisb = trisc = 0x00;
+;project.c,1 :: 		void init(){
+;project.c,2 :: 		ADCON1 = 0x07;
+	MOVLW      7
+	MOVWF      ADCON1+0
+;project.c,3 :: 		trisb = trisc = 0x00;
 	CLRF       TRISC+0
 	MOVF       TRISC+0, 0
 	MOVWF      TRISB+0
-;project.c,5 :: 		trisd = 0b11110000;
+;project.c,4 :: 		trisd = 0xf0;
 	MOVLW      240
 	MOVWF      TRISD+0
-;project.c,6 :: 		trisa = 0b000000;
+;project.c,5 :: 		trisa = 0b000000;
 	CLRF       TRISA+0
-;project.c,7 :: 		trise = 0b000;
+;project.c,6 :: 		trise = 0b000;
 	CLRF       TRISE+0
-;project.c,9 :: 		portb = portc = portd = 0x00;
-	CLRF       PORTD+0
-	MOVF       PORTD+0, 0
-	MOVWF      PORTC+0
+;project.c,8 :: 		portb = portc = 0x00;
+	CLRF       PORTC+0
 	MOVF       PORTC+0, 0
 	MOVWF      PORTB+0
-;project.c,10 :: 		porta = 0b000000;
+;project.c,9 :: 		portd = 0b000000;
+	CLRF       PORTD+0
+;project.c,10 :: 		porta = 0x00;
 	CLRF       PORTA+0
 ;project.c,11 :: 		porte = 0b000;
 	CLRF       PORTE+0
@@ -840,8 +843,9 @@ _run_mode:
 	CLRF       run_mode_j_L0+1
 	CLRF       run_mode_k_L0+0
 	CLRF       run_mode_k_L0+1
-;project.c,169 :: 		portc.f2 = 1;
-	BSF        PORTC+0, 2
+;project.c,169 :: 		porte = 0b111;
+	MOVLW      7
+	MOVWF      PORTE+0
 ;project.c,171 :: 		while (1){
 L_run_mode61:
 ;project.c,172 :: 		for (i = 0; i<channels; i++){
@@ -916,8 +920,8 @@ L_run_mode70:
 ;project.c,181 :: 		}
 	GOTO       L_run_mode66
 L_run_mode67:
-;project.c,182 :: 		portc.f2 = 0;
-	BCF        PORTC+0, 2
+;project.c,182 :: 		porta.f4 = 0;
+	BCF        PORTA+0, 4
 ;project.c,183 :: 		for (j = 0; j<off_time; j++){
 	CLRF       run_mode_j_L0+0
 	CLRF       run_mode_j_L0+1
