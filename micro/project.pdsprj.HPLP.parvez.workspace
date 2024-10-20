@@ -1,9 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
- <FRAME activewindow="1">
-  <PLACEMENT>2c0000000000000001000000ffffffffffffffffffffffffffffffffbd030000feffffff8407000016040000</PLACEMENT>
+ <FRAME activewindow="0">
+  <PLACEMENT>2c0000000000000003000000ffffffffffffffffffffffffffffffff5d030000feffffff2407000015040000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
-  <WINDOW type="default" module="DXP"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
@@ -68,7 +67,7 @@
    <POPUP w="200" x="154" flags="00000008" y="250" h="138" pid="7" iid="1">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="174" flags="80000002" y="270" h="8" pid="8" iid="1">
+   <POPUP w="8" x="174" flags="00000002" y="270" h="8" pid="8" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>

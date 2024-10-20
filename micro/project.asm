@@ -861,8 +861,8 @@ L_run_mode63:
 L__run_mode99:
 	BTFSC      STATUS+0, 0
 	GOTO       L_run_mode64
-;project.c,173 :: 		porta.f4 = 1;
-	BSF        PORTA+0, 4
+;project.c,173 :: 		porta.f5 = 1;
+	BSF        PORTA+0, 5
 ;project.c,174 :: 		portd = i;
 	MOVF       run_mode_i_L0+0, 0
 	MOVWF      PORTD+0
@@ -920,8 +920,8 @@ L_run_mode70:
 ;project.c,181 :: 		}
 	GOTO       L_run_mode66
 L_run_mode67:
-;project.c,182 :: 		porta.f4 = 0;
-	BCF        PORTA+0, 4
+;project.c,182 :: 		porta.f5 = 0;
+	BCF        PORTA+0, 5
 ;project.c,183 :: 		for (j = 0; j<off_time; j++){
 	CLRF       run_mode_j_L0+0
 	CLRF       run_mode_j_L0+1

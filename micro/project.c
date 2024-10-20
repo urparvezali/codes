@@ -1,5 +1,5 @@
 void init(){
-     ADCON1 = 0x07;
+        ADCON1 = 0x07;
         trisb = trisc = 0x00;
         trisd = 0xf0;
         trisa = 0b000000;
@@ -170,7 +170,7 @@ void run_mode(){
 
         while (1){
                 for (i = 0; i<channels; i++){
-                        porta.f4 = 1;
+                        porta.f5 = 1;
                         portd = i;
 
                         for (j = 0; j<on_time; j++){
@@ -179,7 +179,7 @@ void run_mode(){
                                         led1(i+1);
                                 }
                         }
-                        porta.f4 = 0;
+                        porta.f5 = 0;
                         for (j = 0; j<off_time; j++){
                                 for (k = 0; k < 50; k++){
                                         led0(off_time-j);
