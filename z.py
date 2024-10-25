@@ -3,16 +3,12 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 
 # Function to generate a continuous-time sine wave
-
-
 def generate_continuous_signal(frequency, amplitude, duration, sampling_rate):
     t = np.linspace(0, duration, int(sampling_rate * duration), endpoint=False)
     signal = amplitude * np.sin(2 * np.pi * frequency * t)
     return t, signal
 
 # Function to sample a signal
-
-
 def sample_signal(t, signal, sampling_rate):
     sampling_interval = int(len(t) // (sampling_rate * max(t)))
     sampled_t = t[::sampling_interval]
@@ -20,14 +16,11 @@ def sample_signal(t, signal, sampling_rate):
     return sampled_t, sampled_signal
 
 # Function to reconstruct the signal using linear interpolation
-
-
 def reconstruct_signal(sampled_t, sampled_signal, t_original):
     interp_func = interp1d(sampled_t, sampled_signal,
                            kind='linear', fill_value="extrapolate")
     reconstructed_signal = interp_func(t_original)
     return reconstructed_signal
-
 
 # Define parameters
 frequency = 5  # Signal frequency in Hz

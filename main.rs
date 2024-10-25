@@ -4,15 +4,21 @@
 #![allow(unused_macros)]
 #![allow(unused_mut)]
 
-mod z;
-mod ai_labs;
-mod linkedlist;
 mod A_Mocha_and_Hiking;
 mod B_Running_for_Gold;
-mod find_order;
+mod ai_labs;
 mod can_arrange;
+mod find_order;
+mod linkedlist;
 mod min_subarray;
+mod z;
 
 fn main() {
-	println!("{:?}", "");
+    let vec: Vec<i32> = Vec::with_capacity(16);
+    let _arr = [i32::default(); 16];
+    {
+        let _x = &vec;
+    }
+	let y = vec;
+	println!("{:?} {:?}","y", y);
 }
