@@ -2,7 +2,7 @@
 <WORKSPACE>
  <FRAME activewindow="0">
   <PLACEMENT>2c0000000000000003000000ffffffffffffffffffffffffffffffff5d030000feffffff2407000015040000</PLACEMENT>
-  <WINDOW type="default" module="ISIS"/>
+  <WINDOW type="default" module="ARES"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
