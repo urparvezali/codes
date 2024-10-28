@@ -1,35 +1,29 @@
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import tf2zpk
+from matplotlib import pyplot as plt
+from scipy.signal import lfilter, firwin
 
-# Define the coefficients of the numerator and denominator
-numerator_coeffs = [1, 0, 0, 1]  # s^3 + 0*s^2 + 0*s + 1
-denominator_coeffs = [1, 0, 2, 0, 1]  # s^4 + 0*s^3 + 2*s^2 + 0*s + 1
+# Parameters
+fs = 10000
+t = np.arange(0, 0.5, 1/fs)
+first = 10 * np.sin(2 * np.pi * 20 * t)  # 20 Hz component
+second = 10 * np.sin(2 * np.pi * 50 * t + np.pi/2)  # 50 Hz component
+signal = first + second
 
-# Calculate zeros, poles, and gain of the transfer function
-zeros, poles, _ = tf2zpk(numerator_coeffs, denominator_coeffs)
-print(zeros, poles)
+# Plot original signal
+plt.subplot(2, 1, 1)
+plt.plot(t, signal)
 
-# Plotting the poles and zeros on the complex plane
-fig, ax = plt.subplots(figsize=(6, 6))
 
-# Plot unit circle for reference
-unit_circle = plt.Circle((0, 0), 1, color='lightgray',
-                         linestyle='--', fill=False)
-ax.add_artist(unit_circle)
+# High-pass filter design
+coff = 20  # Set cutoff frequency higher than the lowest frequency in the signal
+numtaps = 81  # Number of filter taps
+b = firwin(numtaps=numtaps, cutoff=2*coff/fs,
+           fs=fs, window='hamming', pass_zero=False)
 
-# Plot zeros and poles
-ax.plot(np.real(zeros), np.imag(zeros), 'bo', label='Zeros')  # Blue for zeros
-ax.plot(np.real(poles), np.imag(poles), 'rx', label='Poles')  # Red for poles
+# Apply the filter
+filtered_signal = lfilter(b, 1.0, signal)
 
-# Setting up the plot
-ax.axhline(0, color='black', linewidth=0.5)
-ax.axvline(0, color='black', linewidth=0.5)
-ax.set_xlim(-2, 2)
-ax.set_ylim(-2, 2)
-ax.set_xlabel('Real')
-ax.set_ylabel('Imaginary')
-ax.set_title('Pole-Zero Plot with Unit Circle')
-ax.legend()
-plt.grid()
+# Plot filtered signal
+plt.subplot(2, 1, 2)
+plt.plot(t, filtered_signal)
 plt.show()
