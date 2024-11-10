@@ -1,0 +1,11 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP16F877A -DL -O11111114 -fo8 -N"C:\users\parvez\Documents\cds\micro\pwm_test.mcppi" -SP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\" -SP"C:\users\parvez\Documents\cds\micro\" -IP"C:\users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\" "pwm_test.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_PWM_c21.mcl"	 
+hint: 0	1139	Available RAM: 352 [bytes], Available ROM: 8192 [bytes]	 
+diagnostics: 0	122	Compilation Started	pwm_test.c
+diagnostics: 28	123	Compiled Successfully	pwm_test.c
+diagnostics: 0	127	All files Compiled in 148 ms	 
+hint: 0	1144	Used RAM (bytes): 14 (4%)  Free RAM (bytes): 338 (96%)	Used RAM (bytes): 14 (4%)  Free RAM (bytes): 338 (96%)
+hint: 0	1144	Used ROM (program words): 242 (3%)  Free ROM (program words): 7950 (97%)	Used ROM (program words): 242 (3%)  Free ROM (program words): 7950 (97%)
+diagnostics: 0	125	Project Linked Successfully	pwm_test.mcppi
+diagnostics: 0	128	Linked in 32 ms	 
+diagnostics: 0	129	Project 'pwm_test.mcppi' completed: 213 ms	 
+diagnostics: 0	103	Finished successfully: 04 Nov 2024, 15:13:05	pwm_test.mcppi
