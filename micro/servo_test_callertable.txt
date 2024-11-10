@@ -1,4 +1,0 @@
-main
-	servoRotate0
-	servoRotate90
-	servoRotate180
