@@ -1,20 +1,31 @@
 section .data
-	list db 1,2,3,4,5
+    msg db '0', 10
 
 section .text
-global _start
+    global _start
 
 _start:
 	mov eax, 0
-	mov ecx, 0
-	mov ebx, list
-looping:
-	add ecx, [ebx + eax]
-	add eax, 1
-	cmp eax, 5
-	je end
-	jmp looping
+	push eax
+myloop:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg 
+    mov edx, 2
+    int 0x80
+
+	pop eax
+	inc eax
+	push eax
+
+	mov ecx, eax
+	add ecx, '0'
+	mov [msg], cl
+	
+	cmp eax, 10
+	jl myloop
+
 end:
-	mov eax, 1
-	mov ebx, 1
-	int 80h
+    mov eax, 1
+    xor ebx, ebx
+    int 0x80

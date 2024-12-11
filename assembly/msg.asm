@@ -1,18 +1,31 @@
 section .data
-    msg db '1', 0xA   ; Define the message (ASCII for '1' and newline)
+    msg db '0', 10
 
 section .text
-    global _start     ; Required for the entry point
+    global _start
 
 _start:
-    ; Write '1' to stdout
+	mov eax, 0
+	push eax
+myloop:
     mov eax, 4        ; sys_write syscall number
     mov ebx, 1        ; file descriptor 1 (stdout)
     mov ecx, msg      ; address of the message
-    mov edx, 2        ; length of the message (including the newline)
+    mov edx, 2       ; length of the message (including the newline)
     int 0x80          ; call the kernel
 
-    ; Exit the program
+	pop eax
+	inc eax
+	push eax
+
+	mov ecx, eax
+	add ecx, '0'
+	mov [msg], cl
+	
+	cmp eax, 10
+	jl myloop
+
+end:
     mov eax, 1        ; sys_exit syscall number
     xor ebx, ebx      ; exit code 0
     int 0x80          ; call the kernel
