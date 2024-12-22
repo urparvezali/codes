@@ -1,15 +1,29 @@
 #![allow(unused)]
 
 fn solve(scan: &mut Scanner, case: usize) {
-    let n: usize = scan.next();
-	let v: Vec<usize> = scan.vec(n);
-
+    let v = scan.vec::<usize>(4);
+    if let [a, b, c, d] = *v.as_slice() {
+        let mut ans = 0;
+        if a > c && b >= d || a>=c && b>d {
+            ans += 1;
+        }
+        if a > d && b >= c || a>=d && b>c {
+            ans += 1;
+        }
+        if b > c && a >= d || b>=c && a>d {
+            ans += 1;
+        }
+        if b > d && a >= c || b>=d && a>c {
+            ans += 1;
+        }
+        ans.println();
+    }
 }
 
 fn main() {
     let mut scan = Scanner::new();
     let t: usize = 1;
-    // let t: usize = scan.next();
+    let t: usize = scan.next();
     (0..t).for_each(|case| solve(&mut scan, case + 1));
 }
 trait Print {
@@ -39,20 +53,20 @@ struct Scanner {
 }
 impl Scanner {
     fn new() -> Self {
-        let mut input = std::io::read_to_string(std::io::stdin()).unwrap_or_default();
-        let arr = input
-            .split_whitespace()
-            .map(|val| val.to_string())
-            .rev()
-            .collect();
-        Self { arr }
+        Self { arr: Vec::new() }
     }
     fn next<T: std::str::FromStr>(&mut self) -> T
     where
         T::Err: std::fmt::Debug,
     {
-        self.arr.pop().unwrap_or_default().parse().unwrap()
+        if self.arr.is_empty() {
+            let mut input = String::new();
+            std::io::stdin().read_line(&mut input).unwrap();
+            self.arr = input.split_whitespace().rev().map(String::from).collect();
+        }
+        self.arr.pop().unwrap().parse().unwrap()
     }
+
     fn vec<T: std::str::FromStr>(&mut self, n: usize) -> Vec<T>
     where
         T::Err: std::fmt::Debug,

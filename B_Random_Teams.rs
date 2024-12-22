@@ -1,9 +1,20 @@
 #![allow(unused)]
 
+fn ncr(n: usize, r: usize) -> usize {
+    5
+}
 fn solve(scan: &mut Scanner, case: usize) {
-    let n: usize = scan.next();
-	let v: Vec<usize> = scan.vec(n);
-
+    let mut n: usize = scan.next();
+    let k: usize = scan.next();
+    let mut mx = (n - k + 1) * (n - k) / 2;
+    let mut mn = 0;
+    if k == 1 {
+        mn = mx;
+    } else {
+        mn = (k - (n % k)) * (n / k) * (n / k - 1) / 2;
+        mn += (n % k) * (n / k + 1) * (n / k) / 2;
+    }
+    println!("{} {}", mn, mx);
 }
 
 fn main() {
@@ -39,20 +50,20 @@ struct Scanner {
 }
 impl Scanner {
     fn new() -> Self {
-        let mut input = std::io::read_to_string(std::io::stdin()).unwrap_or_default();
-        let arr = input
-            .split_whitespace()
-            .map(|val| val.to_string())
-            .rev()
-            .collect();
-        Self { arr }
+        Self { arr: Vec::new() }
     }
     fn next<T: std::str::FromStr>(&mut self) -> T
     where
         T::Err: std::fmt::Debug,
     {
-        self.arr.pop().unwrap_or_default().parse().unwrap()
+        if self.arr.is_empty() {
+            let mut input = String::new();
+            std::io::stdin().read_line(&mut input).unwrap();
+            self.arr = input.split_whitespace().rev().map(String::from).collect();
+        }
+        self.arr.pop().unwrap().parse().unwrap()
     }
+
     fn vec<T: std::str::FromStr>(&mut self, n: usize) -> Vec<T>
     where
         T::Err: std::fmt::Debug,

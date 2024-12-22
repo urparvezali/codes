@@ -2,8 +2,22 @@
 
 fn solve(scan: &mut Scanner, case: usize) {
     let n: usize = scan.next();
-	let v: Vec<usize> = scan.vec(n);
-
+    let mut v: Vec<(usize, i8)> = vec![];
+    let (mut x, mut y) = (0, 0);
+    for i in 0..n {
+        x = scan.next();
+        y = scan.next();
+        v.push((x, 1));
+        v.push((y, -1));
+    }
+	v.sort();
+    let mut mx = 1;
+    let mut cnt: i64 = 0;
+    for ele in v {
+        cnt += ele.1 as i64;
+        mx = mx.max(cnt);
+    }
+	mx.println();
 }
 
 fn main() {
@@ -39,20 +53,20 @@ struct Scanner {
 }
 impl Scanner {
     fn new() -> Self {
-        let mut input = std::io::read_to_string(std::io::stdin()).unwrap_or_default();
-        let arr = input
-            .split_whitespace()
-            .map(|val| val.to_string())
-            .rev()
-            .collect();
-        Self { arr }
+        Self { arr: Vec::new() }
     }
     fn next<T: std::str::FromStr>(&mut self) -> T
     where
         T::Err: std::fmt::Debug,
     {
-        self.arr.pop().unwrap_or_default().parse().unwrap()
+        if self.arr.is_empty() {
+            let mut input = String::new();
+            std::io::stdin().read_line(&mut input).unwrap();
+            self.arr = input.split_whitespace().rev().map(String::from).collect();
+        }
+        self.arr.pop().unwrap().parse().unwrap()
     }
+
     fn vec<T: std::str::FromStr>(&mut self, n: usize) -> Vec<T>
     where
         T::Err: std::fmt::Debug,

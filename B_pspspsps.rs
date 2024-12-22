@@ -2,14 +2,25 @@
 
 fn solve(scan: &mut Scanner, case: usize) {
     let n: usize = scan.next();
-	let v: Vec<usize> = scan.vec(n);
+    let mut s: Vec<char> = scan.next::<String>().chars().map(|val| val).collect();
 
+    if s[0] == 's' {
+        s[0] = '.';
+    }
+    if s[n - 1] == 'p' {
+        s[n - 1] = '.';
+    }
+    if s.contains(&'p') && s.contains(&'s') {
+        println!("NO");
+        return;
+    }
+    println!("YES");
 }
 
 fn main() {
     let mut scan = Scanner::new();
     let t: usize = 1;
-    // let t: usize = scan.next();
+    let t: usize = scan.next();
     (0..t).for_each(|case| solve(&mut scan, case + 1));
 }
 trait Print {
@@ -39,20 +50,20 @@ struct Scanner {
 }
 impl Scanner {
     fn new() -> Self {
-        let mut input = std::io::read_to_string(std::io::stdin()).unwrap_or_default();
-        let arr = input
-            .split_whitespace()
-            .map(|val| val.to_string())
-            .rev()
-            .collect();
-        Self { arr }
+        Self { arr: Vec::new() }
     }
     fn next<T: std::str::FromStr>(&mut self) -> T
     where
         T::Err: std::fmt::Debug,
     {
-        self.arr.pop().unwrap_or_default().parse().unwrap()
+        if self.arr.is_empty() {
+            let mut input = String::new();
+            std::io::stdin().read_line(&mut input).unwrap();
+            self.arr = input.split_whitespace().rev().map(String::from).collect();
+        }
+        self.arr.pop().unwrap().parse().unwrap()
     }
+
     fn vec<T: std::str::FromStr>(&mut self, n: usize) -> Vec<T>
     where
         T::Err: std::fmt::Debug,
