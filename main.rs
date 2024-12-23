@@ -4,16 +4,15 @@
 #![allow(unused_macros)]
 #![allow(unused_mut)]
 
+use std::{thread::sleep, time::{Duration, Instant}};
 
-mod z;
-mod Sum_of_Two_Values;
-mod Maximum_Subarray_Sum;
-mod Stick_Lengths;
-mod Missing_Coin_Sum;
-
-
-
+// mod C_Preparing_for_the_Exam;
+// mod Playlist;
+// mod z;
 
 fn main() {
-    
+    let now = Instant::now();
+	sleep(Duration::from_nanos(1));
+	let x = now.elapsed().as_nanos();
+	println!("{}", x);
 }
