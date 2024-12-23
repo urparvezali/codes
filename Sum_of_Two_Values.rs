@@ -2,34 +2,28 @@
 
 fn solve(scan: &mut Scanner, case: usize) {
     let n: usize = scan.next();
+    let t: usize = scan.next();
+    let vv: Vec<usize> = scan.vec(n);
     let mut v: Vec<(usize, usize)> = vec![(0, 0); n];
     for i in 0..n {
-        v[i].0 = scan.next();
-        v[i].1 = scan.next();
+        v[i].0 = vv[i];
+        v[i].1 = i+1;
     }
-    v.sort_by(|a, b| {
-        let ord = a.1.cmp(&b.1);
-        if ord == std::cmp::Ordering::Equal {
-            a.0.cmp(&b.0)
+    v.sort();
+    let (mut l, mut r) = (0, n - 1);
+    while l < r {
+        if v[l].0 + v[r].0 == t {
+            break;
+        } else if v[l].0 + v[r].0 > t {
+            r -= 1;
         } else {
-            ord
-        }
-    });
-
-    let mut ans = 0;
-    let mut last: Option<usize> = None;
-    for (f, s) in &v {
-        if last.is_none() {
-            ans += 1;
-            last = Some(*s);
-            continue;
-        }
-        if last.unwrap() <= *f {
-            last = Some(*s);
-            ans += 1;
+            l += 1;
         }
     }
-    ans.println();
+	if l==r || v[l].0 + v[r].0 != t || v.len()<=1{
+		println!("IMPOSSIBLE");return;
+	}
+    println!("{} {}", v[l].1.min(v[r].1), v[l].1.max(v[r].1));
 }
 
 fn main() {
