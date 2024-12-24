@@ -1,9 +1,13 @@
 #![allow(unused)]
 
+use std::net::Ipv4Addr;
+
 fn solve(scan: &mut Scanner, case: usize) {
 	let n: usize = scan.next();
-	let mut v: Vec<i32> = scan.next();
-	
+	let mut v: Vec<i32> = scan.vec(n);
+	let addr: Ipv4Addr = scan.next();
+	let a = addr;
+	addr.println();
 }
 
 fn main() {
