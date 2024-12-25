@@ -22,38 +22,33 @@ inline void input() {}template<class H, class... T>inline void input(H&& h, T &&
 
 
 void solution(ll& T) {
-	ll n; cin >> n; vll v(n); cin >> v;
-	auto calculate = [&](vll v)-> vll {
-		ll mx = 0, mn = 0, idx = -1;
-		ll sum1 = 0, sum2 = 0;
-		for (ll i = 0; i < v.size(); i++) {
-			if (v[i] >= 0) {
-				sum1 += v[i];
-				mx = max(mx, sum1);
-			} else {
-				sum1 = 0;
-			}
-			if (v[i] <= 0) {
-				sum2 += v[i];
-				mn = min(mn, sum2);
-			} else {
-				sum2 = 0;
-			}
-			if (v[i] != 1 and v[i] != -1) {
-				idx = i;
-			}
+	ll n; cin >> n; vector<ll> a(n); cin >> a;
+	ll ans = 1e18;
+
+	auto upd = [&](vector<ll> a) {
+		sort(a.begin(), a.end());
+		ll res = 0;
+		for (ll i = 0; i < (ll)a.size(); i += 2) {
+			res = max(res, a[i + 1] - a[i]);
 		}
-		return { mn, mx, idx };
+		ans = min(ans, res);
 		};
-	vll res = calculate(v);
-	if (res[2] == -1) {
-		for (ll i = res[0]; i <= res[1]; i++) {
-			cout << i << ' ';
-		}
-		print();
+
+	if (n % 2 == 0) {
+		upd(a);
+		print(ans);
 		return;
 	}
 
+	for (ll i = 0; i < n; ++i) {
+		for (ll x : {-1, 1}) {
+			a.push_back(a[i] + x);
+			upd(a);
+			a.pop_back();
+		}
+	}
+
+	print(ans);
 }
 
 signed main() {

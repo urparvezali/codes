@@ -1,46 +1,61 @@
 #![allow(unused)]
 
+use std::{collections::HashSet, ops::Range};
+
 fn solve(scan: &mut Scanner, case: usize) {
     let n: usize = scan.next();
-    let mut v = scan.vec::<i64>(n);
+    let k: usize = scan.next();
+    let mut v: Vec<i32> = scan.vec(n);
+
     v.sort();
-    if n == 1 {
-        1.println();
-        return;
-    }
-    let mut distance = Vec::with_capacity(n);
-    for i in (0..n - 1).step_by(2) {
-        distance.push(v[i + 1] - v[i]);
-    }
-    if n % 2 == 0 {
-        distance.iter().max().unwrap().println();
-        return;
-    }
-    let mut distance2 = Vec::with_capacity(n);
-    let mut i: isize = n as isize - 1;
-    while i > 0 {
-        distance2.push(v[i as usize] - v[i as usize - 1]);
-        i -= 2;
-    }
-    distance2.reverse();
-    let mut dp1 = Vec::with_capacity(n);
-    let mut dp2 = Vec::with_capacity(n);
+    // v.println();
 
-    let (mut mx) = (0);
-    for i in 0..distance.len() {
-        mx = mx.max(distance[i]);
-        dp1.push(mx);
-    }
-    mx = 0;
-    for i in (0..distance2.len()).rev() {
-        mx = mx.max(distance2[i]);
-        dp2.push(mx);
-    }
-    dp2.reverse();
+    let mut mx = 0;
+    let mut cnt = 0;
+    let mut prev = None;
 
-	v.println();
-    dp1.println();
-	dp2.println();
+    let mut l = 0;
+    let mut st: HashSet<i32> = HashSet::new();
+    // v.println();
+
+    for i in 0..n {
+		// print!("{} ", st.len());
+        if prev == None {
+            prev = Some(v[i]);
+            cnt += 1;
+            mx = mx.max(cnt);
+			st.insert(v[i]);
+            continue;
+        }
+        if v[i] == prev.unwrap() || v[i] == prev.unwrap() + 1 {
+            if st.len() < k || (st.len() == k && st.contains(&v[i])) {
+                st.insert(v[i]);
+                cnt += 1;
+                mx = mx.max(cnt);
+                prev = Some(v[i]);
+            } else {
+                let x = v[l];
+                while v[l] == x {
+                    l += 1;
+                    cnt -= 1;
+                }
+                st.remove(&x);
+                cnt += 1;
+                mx = mx.max(cnt);
+                st.insert(v[i]);
+                prev = Some(v[i]);
+            }
+        } else {
+            st.clear();
+            st.insert(v[i]);
+            cnt = 1;
+            mx = mx.max(cnt);
+            prev = Some(v[i]);
+            l = i;
+        }
+    }
+	// println!();
+    mx.println();
 }
 
 fn main() {
