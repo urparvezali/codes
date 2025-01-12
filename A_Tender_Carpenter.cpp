@@ -20,64 +20,23 @@ inline void input() {}template<class H, class... T>inline void input(H&& h, T &&
 
 
 
-vll calculate(vll& v, ll l, ll r) {
-	ll mx = 0, mn = 0;
-	ll sum1 = 0, sum2 = 0;
-	for (ll i = l; i < r; i++) {
-		sum1 += v[i];
-		sum2 += v[i];
-		if (sum1 < 0) sum1 = 0;
-		if (sum2 > 0) sum2 = 0;
-		mx = max(mx, sum1);
-		mn = min(mn, sum2);
-	}
-	return { mn, mx };
-};
-
+bool check(ll a, ll b) {
+	return 2 * a <= b or 2 * b <= a;
+}
 void solution(ll& T) {
 	ll n; cin >> n; vll v(n); cin >> v;
-
-	for (ll i = 0; i < n; i++) {
-		if (v[i] != 1 and v[i] != -1) {
-			set<ll> st;
-			vll left = calculate(v, 0, i);
-			vll right = calculate(v, i + 1, n);
-			for (ll j = left[0]; j <= left[1]; j++) {
-				st.insert(j);
-			}
-			for (ll j = right[0]; j <= right[1]; j++) {
-				st.insert(j);
-			}
-			ll mnl = 0, mxl = 0, mnr = 0, mxr = 0;
-			ll sum = 0;
-			for (ll j = i - 1; j >= 0; j--) {
-				sum += v[j];
-				mnl = min(mnl, sum);
-				mxl = max(mxl, sum);
-			}
-			sum = 0;
-			for (ll j = i + 1; j < n; j++) {
-				sum += v[j];
-				mnr = min(mnr, sum);
-				mxr = max(mxr, sum);
-			}
-			for (ll j = v[i] + mnl + mnr; j <= mxl + v[i] + mxr; j++) {
-				st.insert(j);
-			}
-			print(st.size());
-			for (auto& x : st) {
-				cout << x << ' ';
-			}
-			print();
-			return;
+	vll pre(n - 1, 0);
+	for (ll i = 0; i < n - 1; i++) {
+		if (check(v[i], v[i + 1])) {
+			pre[i] = 1;
 		}
 	}
-	vll res = calculate(v, 0, n);
-	print(res[1] - res[0] + 1);
-	for (ll i = res[0]; i <= res[1]; i++) {
-		cout << i << ' ';
+	// print(pre);
+	if (count(all(pre), 0) >= 1) {
+		print("YES");
+	} else {
+		print("NO");
 	}
-	print();
 }
 
 signed main() {

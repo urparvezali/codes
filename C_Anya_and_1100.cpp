@@ -20,35 +20,40 @@ inline void inp() {}template<class H, class... T>inline void inp(H&& h, T &&...t
 
 
 
-vector<ll> segmentedSieve(ll L, ll R) {
-	ll lim = sqrt(R);
-	vbl mark(lim + 1, false);
-	vector<ll> primes;
-	for (ll i = 2; i <= lim; ++i)
-		if (!mark[i]) {
-			primes.push_back(i);
-			for (ll j = i * i; j <= lim; j += i)
-				mark[j] = true;
-		}
-	vbl isPrime(R - L + 1, true);
-	for (ll p : primes)
-		for (ll j = max(p * p, (L + p - 1) / p * p); j <= R; j += p)
-			isPrime[j - L] = false;
-	vector<ll> result;
-	for (ll i = L; i <= R; ++i)
-		if (isPrime[i - L])
-			result.push_back(i);
-	return result;
-}
+
 void solution(ll& T) {
-	vll v = segmentedSieve(2, 1e7);
-	cout << v.size() << endl;
+	string s; cin >> s;
+	ll n = s.length();
+	ll cnt = 0;
+	for (ll i = 0; i < s.length() - 3; i++) {
+		if (s.substr(i, 4) == "1100") cnt += 1;
+	}
+
+	ll q; cin >> q;
+	ll idx; char c;
+	ll cnt1;
+	while (q--) {
+		// print(s);
+		cin >> idx >> c; idx--;
+		if (s[idx] == c) {
+			print(cnt ? "YES" : "NO");continue;
+		}
+		ll l = max(0LL, idx - 3), r = min(n - 1, idx);
+		for (ll i = l; i <= r; i++) {
+			if (s.substr(i, 4) == "1100") cnt -= 1;
+		}
+		s[idx] = c;
+		for (ll i = l; i <= r; i++) {
+			if (s.substr(i, 4) == "1100") cnt += 1;
+		}
+		print(cnt ? "YES" : "NO");
+	}
 }
 
 signed main() {
 	Parvez();
 	ll TT = 1;
-	// cin>>TT;
+	cin >> TT;
 	for (ll T = 1;T <= TT;T++)
 		solution(T);
 	return 0;

@@ -4,14 +4,22 @@
 #![allow(unused_macros)]
 #![allow(unused_mut)]
 
-mod B_Alice_s_Adventures_in_Permuting;
-mod B_Black_Cells;
-mod B_Bowling_Frame;
-mod C_New_Game;
-mod C_Trinity;
+use std::io::stdout;
+use std::io::Write;
 
-mod C_Preparing_for_the_Exam;
-mod Playlist;
 mod z;
+mod A_Keyboard;
+mod A_K_divisible_Sum;
+mod find_closest;
+mod A_Merging_Arrays;
+mod B_Number_of_Smaller;
+mod C_Number_of_Equal;
+mod C_Bewitching_Stargazer;
+mod D_Kevin_and_Competition_Memories;
+mod C_Anya_and_1100;
+mod C_1_Shohag_Loves_XOR_Easy_Version;
+mod length_of_lis;
 
-fn main() {}
+fn main() {
+    writeln!(stdout(), "Hi{}", 2);
+}

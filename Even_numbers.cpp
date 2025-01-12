@@ -20,35 +20,27 @@ inline void inp() {}template<class H, class... T>inline void inp(H&& h, T &&...t
 
 
 
-vector<ll> segmentedSieve(ll L, ll R) {
-	ll lim = sqrt(R);
-	vbl mark(lim + 1, false);
-	vector<ll> primes;
-	for (ll i = 2; i <= lim; ++i)
-		if (!mark[i]) {
-			primes.push_back(i);
-			for (ll j = i * i; j <= lim; j += i)
-				mark[j] = true;
-		}
-	vbl isPrime(R - L + 1, true);
-	for (ll p : primes)
-		for (ll j = max(p * p, (L + p - 1) / p * p); j <= R; j += p)
-			isPrime[j - L] = false;
-	vector<ll> result;
-	for (ll i = L; i <= R; ++i)
-		if (isPrime[i - L])
-			result.push_back(i);
-	return result;
-}
+
 void solution(ll& T) {
-	vll v = segmentedSieve(2, 1e7);
-	cout << v.size() << endl;
+	ll n; cin >> n;
+	string s; cin >> s;
+	vector<pair<char, ll>> st;
+	ll ans = 0;
+	for (ll i = 0; i < n; i++) {
+		if ((s[i] == ')' or s[i] == '_') and st.size() > 0 and (st.back().first == '_' or st.back().first == '(')) {
+			ans += i - st.back().second;
+			st.pop_back();
+		} else {
+			st.push_back({ s[i], i });
+		}
+	}
+	print(ans);
 }
 
 signed main() {
 	Parvez();
 	ll TT = 1;
-	// cin>>TT;
+	cin >> TT;
 	for (ll T = 1;T <= TT;T++)
 		solution(T);
 	return 0;
