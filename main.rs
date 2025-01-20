@@ -8,18 +8,17 @@ use std::io::stdout;
 use std::io::Write;
 
 mod z;
-mod A_Keyboard;
-mod A_K_divisible_Sum;
-mod find_closest;
-mod A_Merging_Arrays;
-mod B_Number_of_Smaller;
-mod C_Number_of_Equal;
-mod C_Bewitching_Stargazer;
-mod D_Kevin_and_Competition_Memories;
-mod C_Anya_and_1100;
-mod C_1_Shohag_Loves_XOR_Easy_Version;
 mod length_of_lis;
+mod segmented_sieve;
+mod binary_exponentiation;
+mod phi;
+mod phi_sieve;
+mod Euler_Totient_Function;
+mod exponial;
+mod zextra;
+mod B_Fedor_and_New_Game;
 
 fn main() {
     writeln!(stdout(), "Hi{}", 2);
+
 }
