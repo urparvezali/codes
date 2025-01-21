@@ -10,11 +10,11 @@ vector<int> dijkstra(int s, vector<vector<pair<int, int>>>& g) {
 
 	while (!pq.empty()) {
 		auto [distance, parent] = pq.top();pq.pop();
-		if(distance>dist[parent]) continue;
-		for (auto& [edge, node] : g[parent]) {
-			if(dist[parent]+edge<dist[node]){
+		if (distance > dist[parent]) continue;
+		for (auto& [node, edge] : g[parent]) {
+			if (dist[parent] + edge < dist[node]) {
 				dist[node] = dist[parent] + edge;
-				pq.push({dist[node], node});
+				pq.push({ dist[node], node });
 			}
 		}
 	}
@@ -29,5 +29,9 @@ int main() {
 		{{4, 3}},                // Node 3: (weight 3 -> 4)
 		{}                       // Node 4: No outgoing edges
 	};
-	vector<int> dist = dijkstra(0,g);
+	vector<int> dist = dijkstra(0, g);
+	for (int i = 0; i < dist.size(); i++) {
+		cout << i << ' ' << dist[i] << endl;
+	}
+
 }
