@@ -6,16 +6,15 @@ fn bfs(s: usize, g: &Vec<Vec<usize>>) {
     let mut q = VecDeque::new();
 
     q.push_back(s);
-
+    vs[s] = true;
     while !q.is_empty() {
         let parent = q.pop_front().unwrap();
-        if vs[parent] {
-            continue;
-        }
-        print!("{} ", parent);
-        vs[parent] = true;
         for &node in g[parent].iter() {
-            q.push_back(node);
+            if !vs[node] {
+                q.push_back(node);
+                vs[node] = true;
+                print!("{} ", node);
+            }
         }
     }
 }
