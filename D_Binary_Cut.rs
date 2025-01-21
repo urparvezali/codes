@@ -1,23 +1,40 @@
 #![allow(unused)]
+fn groupby(vc: Vec<u8>) -> Vec<u8> {
+    let mut res = Vec::new();
+    let mut prev: Option<u8> = None;
 
+    for u in vc {
+        if let Some(p) = prev {
+            if p != u {
+                res.push(u);
+                prev = Some(u);
+            }
+        } else {
+            prev = Some(u);
+            res.push(u);
+        }
+    }
+    res
+}
 fn solve(scan: &mut Scanner, case: usize) {
     let s: Vec<u8> = scan
         .next::<String>()
         .chars()
         .map(|c| c as u8 - 48)
         .collect();
-    let mut ans: i32 = 1;
-    let mut mx = s[0];
-    for i in 1..s.len() {
-        if s[i] < mx {
-            mx = 0;
-            ans += 1;
-        } else {
-            mx = mx.max(s[i]);
+
+    let v = groupby(s);
+    let mut cnt = 0;
+    let mut ans = 0_usize;
+
+    for &u in &v {
+        cnt += u;
+        if cnt < 0 {
+            cnt = 0;
         }
+        ans = ans.max(cnt as usize);
     }
-    // s.println();
-    ans.println();
+    (v.len() - ans).println();
 }
 
 fn main() {

@@ -4,8 +4,7 @@
 #![allow(unused_macros)]
 #![allow(unused_mut)]
 
-use std::io::stdout;
-use std::io::Write;
+use std::time::Instant;
 
 mod z;
 mod length_of_lis;
@@ -17,8 +16,12 @@ mod Euler_Totient_Function;
 mod exponial;
 mod zextra;
 mod B_Fedor_and_New_Game;
+mod bfs;
 
 fn main() {
-    writeln!(stdout(), "Hi{}", 2);
-
+    let time = Instant::now();
+	{
+		// do something
+	}
+	println!("{:?}", time.elapsed())
 }
