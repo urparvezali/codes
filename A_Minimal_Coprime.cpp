@@ -19,10 +19,13 @@ template<class T>inline istream& operator>>(istream& in,vector<T>& v){for(T& x:v
 inline void inp(){}template<class H,class... T>inline void inp(H&& h,T &&...t){cin>>h;inp(forward<T>(t)...);}inline void print(){cout<<endl;}template<class H,class... T>inline void print(H &&h,T &&...t){cout<<h;if(sizeof...(t)!=0)cout<<' ';print(forward<T>(t)...);}
 
 
-
-
 void solution(ll &T){
-	
+	ll l,r; cin>>l>>r;
+	if(l==r and l==1){
+		print(1);
+		return;
+	}
+	print(r-l);
 }
 
 signed main(){

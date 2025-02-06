@@ -1,0 +1,442 @@
+{
+	"resultcount": 12,
+	"results": [
+		{
+			"CoMaintainers": [
+				"mhdi",
+				"billyaddlers",
+				"vk8a8",
+				"Neomax7"
+			],
+			"Conflicts": [
+				"cloudflare-warp"
+			],
+			"Depends": [
+				"cairo",
+				"dbus",
+				"gcc-libs",
+				"gdk-pixbuf2",
+				"glib2",
+				"glibc",
+				"gtk3",
+				"hicolor-icon-theme",
+				"nftables",
+				"nspr",
+				"nss",
+				"pango"
+			],
+			"Description": "Cloudflare Warp Client",
+			"FirstSubmitted": 1622019580,
+			"ID": 1613155,
+			"Keywords": [],
+			"LastModified": 1734696449,
+			"License": [
+				"unknown"
+			],
+			"Maintainer": "solatis",
+			"Name": "cloudflare-warp-bin",
+			"NumVotes": 56,
+			"OutOfDate": null,
+			"PackageBase": "cloudflare-warp-bin",
+			"PackageBaseID": 167364,
+			"Popularity": 0.773819,
+			"Provides": [
+				"warp-cli",
+				"warp-diag",
+				"warp-svc"
+			],
+			"Submitter": "solatis",
+			"URL": "https://1.1.1.1",
+			"URLPath": "/cgit/aur.git/snapshot/cloudflare-warp-bin.tar.gz",
+			"Version": "2024.12.554-1"
+		},
+		{
+			"CoMaintainers": [
+				"atreyasha"
+			],
+			"Depends": [
+				"pacman-contrib",
+				"fzf"
+			],
+			"Description": "Bash script for downgrading one or more packages to a version in your cache or the A.L.A.",
+			"FirstSubmitted": 1257990537,
+			"ID": 1625000,
+			"Keywords": [],
+			"LastModified": 1736098770,
+			"License": [
+				"GPL"
+			],
+			"Maintainer": "brisbin33",
+			"Name": "downgrade",
+			"NumVotes": 807,
+			"OptDepends": [
+				"sudo"
+			],
+			"OutOfDate": null,
+			"PackageBase": "downgrade",
+			"PackageBaseID": 31937,
+			"Popularity": 9.6712,
+			"Submitter": "brisbin33",
+			"URL": "https://github.com/archlinux-downgrade/downgrade",
+			"URLPath": "/cgit/aur.git/snapshot/downgrade.tar.gz",
+			"Version": "11.4.3-1"
+		},
+		{
+			"Depends": [
+				"alsa-lib",
+				"gtk3",
+				"libcups",
+				"libxss",
+				"libxtst",
+				"nss",
+				"ttf-liberation",
+				"xdg-utils"
+			],
+			"Description": "The popular web browser by Google (Stable Channel)",
+			"FirstSubmitted": 1274819156,
+			"ID": 1642943,
+			"Keywords": [
+				"chromium"
+			],
+			"LastModified": 1738106708,
+			"License": [
+				"custom:chrome"
+			],
+			"Maintainer": "gromit",
+			"Name": "google-chrome",
+			"NumVotes": 2258,
+			"OptDepends": [
+				"pipewire",
+				"kdialog",
+				"gnome-keyring",
+				"kwallet"
+			],
+			"OutOfDate": null,
+			"PackageBase": "google-chrome",
+			"PackageBaseID": 37469,
+			"Popularity": 9.057033,
+			"URL": "https://www.google.com/chrome",
+			"URLPath": "/cgit/aur.git/snapshot/google-chrome.tar.gz",
+			"Version": "132.0.6834.159-1"
+		},
+		{
+			"Depends": [
+				"alsa-lib",
+				"gtk3",
+				"libsecret",
+				"libxss",
+				"libxtst",
+				"nss"
+			],
+			"Description": "The MongoDB GUI",
+			"FirstSubmitted": 1491210920,
+			"ID": 1642083,
+			"Keywords": [],
+			"LastModified": 1737998943,
+			"License": [
+				"SSPL-1.0"
+			],
+			"Maintainer": "ogarcia",
+			"Name": "mongodb-compass",
+			"NumVotes": 61,
+			"OptDepends": [
+				"org.freedesktop.secrets"
+			],
+			"OutOfDate": null,
+			"PackageBase": "mongodb-compass",
+			"PackageBaseID": 121182,
+			"Popularity": 0.315106,
+			"Submitter": "ogarcia",
+			"URL": "https://www.mongodb.com/products/compass",
+			"URLPath": "/cgit/aur.git/snapshot/mongodb-compass.tar.gz",
+			"Version": "1.45.2-1"
+		},
+		{
+			"Depends": [
+				"python-pytorch",
+				"python-torchvision"
+			],
+			"Description": "Model summary in PyTorch, based off of the original torchsummary",
+			"FirstSubmitted": 1673684789,
+			"ID": 1376237,
+			"Keywords": [],
+			"LastModified": 1703641724,
+			"License": [
+				"MIT"
+			],
+			"Maintainer": "yodaembedding",
+			"MakeDepends": [
+				"python-setuptools"
+			],
+			"Name": "python-torchinfo",
+			"NumVotes": 0,
+			"OutOfDate": null,
+			"PackageBase": "python-torchinfo",
+			"PackageBaseID": 189524,
+			"Popularity": 0,
+			"Submitter": "yodaembedding",
+			"URL": "https://github.com/tyleryep/torchinfo",
+			"URLPath": "/cgit/aur.git/snapshot/python-torchinfo.tar.gz",
+			"Version": "1.8.0-1"
+		},
+		{
+			"Conflicts": [
+				"speedtest-go"
+			],
+			"Description": "CLI and Go API to Test Internet Speed using speedtest.net",
+			"FirstSubmitted": 1671373400,
+			"ID": 1614608,
+			"Keywords": [],
+			"LastModified": 1734877839,
+			"License": [
+				"MIT"
+			],
+			"Maintainer": "abdulocracy",
+			"MakeDepends": [
+				"go"
+			],
+			"Name": "speedtest-go",
+			"NumVotes": 9,
+			"OutOfDate": null,
+			"PackageBase": "speedtest-go",
+			"PackageBaseID": 188837,
+			"Popularity": 2.039014,
+			"Provides": [
+				"speedtest-go"
+			],
+			"Submitter": "abdulocracy",
+			"URL": "https://github.com/showwin/speedtest-go",
+			"URLPath": "/cgit/aur.git/snapshot/speedtest-go.tar.gz",
+			"Version": "1.7.10-1"
+		},
+		{
+			"Conflicts": [
+				"sublime-text"
+			],
+			"Depends": [
+				"libpng",
+				"gtk3"
+			],
+			"Description": "Sophisticated text editor for code, html and prose - stable build",
+			"FirstSubmitted": 1621598032,
+			"ID": 1636827,
+			"Keywords": [],
+			"LastModified": 1737388818,
+			"License": [
+				"custom"
+			],
+			"Maintainer": "SunRed",
+			"Name": "sublime-text-4",
+			"NumVotes": 86,
+			"OutOfDate": null,
+			"PackageBase": "sublime-text-4",
+			"PackageBaseID": 167161,
+			"Popularity": 2.898274,
+			"Provides": [
+				"sublime-text"
+			],
+			"Submitter": "SunRed",
+			"URL": "https://www.sublimetext.com/download",
+			"URLPath": "/cgit/aur.git/snapshot/sublime-text-4.tar.gz",
+			"Version": "4.4192-1"
+		},
+		{
+			"CoMaintainers": [
+				"KokaKiwi",
+				"yochananmarqos",
+				"Kr1ss"
+			],
+			"Conflicts": [
+				"ventoy"
+			],
+			"Depends": [
+				"bash",
+				"util-linux",
+				"xz",
+				"dosfstools"
+			],
+			"Description": "A new bootable USB solution",
+			"FirstSubmitted": 1589868885,
+			"ID": 1638628,
+			"Keywords": [
+				"boot",
+				"image",
+				"iso",
+				"multiboot",
+				"usb"
+			],
+			"LastModified": 1737584916,
+			"License": [
+				"GPL-3.0-or-later"
+			],
+			"Maintainer": "DuckSoft",
+			"Name": "ventoy-bin",
+			"NumVotes": 368,
+			"OptDepends": [
+				"gtk3",
+				"qt5-base",
+				"polkit"
+			],
+			"OutOfDate": null,
+			"PackageBase": "ventoy-bin",
+			"PackageBaseID": 152949,
+			"Popularity": 10.243059,
+			"Provides": [
+				"ventoy"
+			],
+			"Submitter": "DuckSoft",
+			"URL": "http://www.ventoy.net",
+			"URLPath": "/cgit/aur.git/snapshot/ventoy-bin.tar.gz",
+			"Version": "1.1.00-2"
+		},
+		{
+			"Conflicts": [
+				"code"
+			],
+			"Depends": [
+				"libxkbfile",
+				"gnupg",
+				"gtk3",
+				"libsecret",
+				"nss",
+				"gcc-libs",
+				"libnotify",
+				"libxss",
+				"glibc",
+				"lsof",
+				"shared-mime-info",
+				"xdg-utils",
+				"alsa-lib"
+			],
+			"Description": "Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)",
+			"FirstSubmitted": 1513624448,
+			"ID": 1634122,
+			"Keywords": [],
+			"LastModified": 1737100058,
+			"License": [
+				"custom: commercial"
+			],
+			"Maintainer": "dcelasun",
+			"Name": "visual-studio-code-bin",
+			"NumVotes": 1490,
+			"OptDepends": [
+				"glib2",
+				"libdbusmenu-glib",
+				"org.freedesktop.secrets",
+				"icu69"
+			],
+			"OutOfDate": null,
+			"PackageBase": "visual-studio-code-bin",
+			"PackageBaseID": 128020,
+			"Popularity": 19.225703,
+			"Provides": [
+				"code",
+				"vscode"
+			],
+			"Submitter": "dcelasun",
+			"URL": "https://code.visualstudio.com/",
+			"URLPath": "/cgit/aur.git/snapshot/visual-studio-code-bin.tar.gz",
+			"Version": "1.96.4-1"
+		},
+		{
+			"Depends": [
+				"openssl",
+				"luajit"
+			],
+			"Description": "Modern HTTP benchmarking tool",
+			"FirstSubmitted": 1358896167,
+			"ID": 1219499,
+			"Keywords": [],
+			"LastModified": 1677672402,
+			"License": [
+				"Apache"
+			],
+			"Maintainer": "drakkan",
+			"Name": "wrk",
+			"NumVotes": 61,
+			"OutOfDate": null,
+			"PackageBase": "wrk",
+			"PackageBaseID": 66534,
+			"Popularity": 0.015533,
+			"Submitter": "pcarrier",
+			"URL": "https://github.com/wg/wrk/",
+			"URLPath": "/cgit/aur.git/snapshot/wrk.tar.gz",
+			"Version": "4.2.0-2"
+		},
+		{
+			"Depends": [
+				"pacman\u003e6.1",
+				"git"
+			],
+			"Description": "Yet another yogurt. Pacman wrapper and AUR helper written in go.",
+			"FirstSubmitted": 1475688004,
+			"ID": 1543364,
+			"Keywords": [
+				"arm",
+				"AUR",
+				"go",
+				"helper",
+				"pacman",
+				"wrapper",
+				"x86"
+			],
+			"LastModified": 1726756037,
+			"License": [
+				"GPL-3.0-or-later"
+			],
+			"Maintainer": "jguer",
+			"MakeDepends": [
+				"go\u003e=1.21"
+			],
+			"Name": "yay",
+			"NumVotes": 2282,
+			"OptDepends": [
+				"sudo",
+				"doas"
+			],
+			"OutOfDate": null,
+			"PackageBase": "yay",
+			"PackageBaseID": 115973,
+			"Popularity": 26.480158,
+			"Submitter": "jguer",
+			"URL": "https://github.com/Jguer/yay",
+			"URLPath": "/cgit/aur.git/snapshot/yay.tar.gz",
+			"Version": "12.4.2-1"
+		},
+		{
+			"Depends": [
+				"ffmpeg",
+				"yt-dlp"
+			],
+			"Description": "a GUI for yt-dlp written in Rust",
+			"FirstSubmitted": 1674083505,
+			"ID": 1606407,
+			"Keywords": [
+				"downloader",
+				"video"
+			],
+			"LastModified": 1734014912,
+			"License": [
+				"GPL3"
+			],
+			"Maintainer": "bksalman",
+			"MakeDepends": [
+				"cargo",
+				"pkgconf",
+				"git"
+			],
+			"Name": "ytdlp-gui",
+			"NumVotes": 4,
+			"OutOfDate": null,
+			"PackageBase": "ytdlp-gui",
+			"PackageBaseID": 189639,
+			"Popularity": 0.000987,
+			"Submitter": "bksalman",
+			"URL": "https://github.com/BKSalman/ytdlp-gui",
+			"URLPath": "/cgit/aur.git/snapshot/ytdlp-gui.tar.gz",
+			"Version": "2.0.0-1"
+		}
+	],
+	"type": "multiinfo",
+	"version": 5
+}
