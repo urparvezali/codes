@@ -5,6 +5,7 @@
 #![allow(unused_mut)]
 
 mod z;
+pub mod minimum_operations;
 // mod zextra;
 
 

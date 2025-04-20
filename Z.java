@@ -1,43 +1,31 @@
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JTextField;;
-
-public class Z extends JFrame {
-	public Z() {
-		super("MyWindowTitle");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setAlwaysOnTop(true);
-		setSize(600, 300);
-		setLayout(new FlowLayout());
-
-		JTextField field = new JTextField(20);
-		add(field);
-
-		JButton button = new JButton("Click");
-		add(button);
-		button.addActionListener(new MyAction(field));
-		setVisible(true);
-	}
+public class Z {
 
 	public static void main(String[] args) {
-		new Z();
-	}
-}
+		String url = "jdbc:mysql://localhost:3306/mydatabase";
+		String user = "your_username"; // Replace with your database username
+		String password = "your_password"; // Replace with your database password
 
-class MyAction implements ActionListener {
-	JTextField field;
+		try (Connection connection = DriverManager.getConnection(url, user, password);
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("SELECT id, name, salary FROM employees")) {
 
-	public MyAction(JTextField field) {
-		this.field = field;
-	}
+			System.out.println("Connected to the database successfully!");
+			System.out.println("Employee Data:");
+			while (resultSet.next()) {
+				int id = resultSet.getInt("id");
+				String name = resultSet.getString("name");
+				double salary = resultSet.getDouble("salary");
+				System.out.println("ID: " + id + ", Name: " + name + ", Salary: " + salary);
+			}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		System.out.println(field.getText());
-		field.setText(null);
+		} catch (SQLException e) {
+			System.err.println("Error connecting to the database or executing the query: " + e.getMessage());
+		}
 	}
 }
