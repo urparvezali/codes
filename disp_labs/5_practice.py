@@ -217,5 +217,5 @@ def apply_manual_edge_detection(image_path):
 # Example usage
 if __name__ == "__main__":
     # Replace with the path to your image
-    image_path = "/home/parvez/Pictures/IMG20241206102234-01~3.jpeg"
+    image_path = "stdimgs/objects.jpeg"
     results = apply_manual_edge_detection(image_path)
