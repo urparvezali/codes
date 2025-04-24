@@ -1,31 +1,63 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.*;
+import java.net.*;
 
 public class Z {
 
-	public static void main(String[] args) {
-		String url = "jdbc:mysql://localhost:3306/mydatabase";
-		String user = "your_username"; // Replace with your database username
-		String password = "your_password"; // Replace with your database password
+	public static void main(String[] args) throws IOException {
+		final int PORT = 8000;
 
-		try (Connection connection = DriverManager.getConnection(url, user, password);
-				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT id, name, salary FROM employees")) {
-
-			System.out.println("Connected to the database successfully!");
-			System.out.println("Employee Data:");
-			while (resultSet.next()) {
-				int id = resultSet.getInt("id");
-				String name = resultSet.getString("name");
-				double salary = resultSet.getDouble("salary");
-				System.out.println("ID: " + id + ", Name: " + name + ", Salary: " + salary);
+		try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+			System.out.println("HTTP Server is listening on port " + PORT);
+			while (true) {
+				Socket clientSocket = serverSocket.accept();
+				System.out.println("New client connected");
+				handleClient(clientSocket);
 			}
 
-		} catch (SQLException e) {
-			System.err.println("Error connecting to the database or executing the query: " + e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
+
+	private static void handleClient(Socket clientSocket) throws IOException {
+		InputStream input = clientSocket.getInputStream();
+		System.out.println("ready to read data");
+		byte[] bytes = new byte[1000];
+		int x = input.read(bytes);
+		System.out.println("readed all bytes " + x);
+
+		System.out.println("Closed reading stream");
+		String data = new String(bytes);
+
+		System.out.println(data);
+
+		OutputStream output = clientSocket.getOutputStream();
+		output.write(data.getBytes());
+		output.flush();
+		clientSocket.close();
+	}
 }
+
+// class Udp {
+// public static void run() throws IOException {
+// try (DatagramSocket socket = new DatagramSocket(8080);) {
+// byte[] buffer = new byte[100];
+// while (true) {
+// DatagramPacket request = new DatagramPacket(buffer, 100);
+// socket.receive(request);
+
+// var client_addr = request.getAddress();
+// var client_port = request.getPort();
+
+// String msg = new String(request.getData(), 0, request.getLength());
+// System.out.println(msg);
+
+// DatagramPacket response = new DatagramPacket(("Returned " + msg).getBytes(),
+// ("Returned " + msg).getBytes().length, client_addr,
+// client_port);
+
+// socket.send(response);
+// }
+// }
+// }
+// }
