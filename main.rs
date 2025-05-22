@@ -5,11 +5,5 @@
 #![allow(unused_mut)]
 
 mod z;
-pub mod minimum_operations;
-pub mod lskjaflsdk;
-// mod zextra;
 
-
-fn main() {
-
-}
+fn main() {}
