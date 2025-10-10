@@ -1,4 +1,6 @@
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 typedef long long ll;
@@ -27,6 +29,7 @@ void solution(ll& T) {
 	if (d == 7 || n >= 3) cout << 7 << ' ';
 	if ((n >= 3) + (n >= 6) + (d % 3 == 0) + (d % 9 == 0) >= 2) cout << 9 << ' ';
 	cout << endl;
+	print("fuck you babe");
 }
 
 signed main() {

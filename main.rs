@@ -4,6 +4,9 @@
 #![allow(unused_macros)]
 #![allow(unused_mut)]
 
+mod knapsack;
 mod z;
 
-fn main() {}
+fn main() {
+    print!("Hi there");
+}
