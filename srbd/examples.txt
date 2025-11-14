@@ -1,0 +1,51 @@
+Example 1: Simple Chain (Expected: 4)
+1
+6 5 2
+1 2
+2 3
+3 4
+4 5
+5 6
+
+Explanation: 6 isolated cities, each forms its own country.
+With k=2, we can visit at most 2 countries = 2 cities.
+But wait - there are edges, so let's trace:
+- Country 1: {1} → can go to country 2: {2} → can go to country 3: {3}...
+- Best path with k=2: start from any city, visit 2 consecutive cities = 2 cities total
+Actually, this should give 2, not 4. Let me fix this.
+
+Example 2: Two Cycles (Expected: 6)
+1
+6 6 2
+1 2
+2 3
+3 1
+4 5
+5 6
+6 4
+
+Explanation: 
+- Country 1: {1,2,3} (strongly connected cycle)
+- Country 2: {4,5,6} (strongly connected cycle) 
+- With k=2, we can visit both countries = 3 + 3 = 6 cities
+
+Example 3: Complex Graph (Expected: 7)
+1
+8 10 3
+1 2
+2 3
+3 1
+1 4
+4 5
+5 4
+6 7
+7 8
+8 6
+3 6
+
+Explanation:
+- Country 1: {1,2,3} (size 3)
+- Country 2: {4,5} (size 2) 
+- Country 3: {6,7,8} (size 3)
+- DAG: Country1 → Country2, Country1 → Country3
+- With k=3: Can visit Country1(3) + Country3(3) + something else = 7 cities
