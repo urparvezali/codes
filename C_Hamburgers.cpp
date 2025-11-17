@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
 typedef long long ll;
@@ -34,20 +36,11 @@ template <class T> inline ostream &operator<<(ostream &out, vector<T> &v) {
     out << v[v.size() - 1];
     return out;
 }
-inline void inp() {}
-template <class H, class... T> inline void inp(H &&h, T &&...t) {
-    cin >> h;
-    inp(forward<T>(t)...);
-}
-inline void print() { cout << endl; }
-template <class H, class... T> inline void print(H &&h, T &&...t) {
-    cout << h;
-    if (sizeof...(t) != 0)
-        cout << ' ';
-    print(forward<T>(t)...);
-}
 
-void solution(ll &T) {}
+void solution(ll &T) {
+    string s;
+    cin >> s;
+}
 
 signed main() {
     Parvez();

@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cstddef>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 typedef long long ll;
@@ -47,12 +50,42 @@ template <class H, class... T> inline void print(H &&h, T &&...t) {
     print(forward<T>(t)...);
 }
 
-void solution(ll &T) {}
+void solution(ll &T) {
+    ll n;
+    cin >> n;
+    vll v(n);
+    cin >> v;
+    vector<ll> diffs(n, 0);
+    vector<ll> counts(32, 0);
+    ll ans = 0;
+    for (ll b = 0; b < 32; b++) {
+        for (ll i = 0; i < n; i++) {
+            if (v[i] & (1 << b)) {
+                counts[b]++;
+            }
+        }
+        for (ll i = 0; i < n; i++) {
+            ll bit = (v[i] & (1 << b)) ? 1 : 0;
+            ll ones = counts[b];
+            ll zeros = n - counts[b];
+
+            if (bit == 1) {
+                diffs[i] += zeros * (1LL << b);
+            } else {
+                diffs[i] += ones * (1LL << b);
+            }
+        }
+    }
+    ll mx_idx = max_element(all(diffs)) - diffs.begin();
+    for (ll &x : v)
+        ans += (x ^ v[mx_idx]);
+    cout << ans << endl;
+}
 
 signed main() {
     Parvez();
     ll TT = 1;
-    // cin>>TT;
+    cin >> TT;
     for (ll T = 1; T <= TT; T++)
         solution(T);
     return 0;

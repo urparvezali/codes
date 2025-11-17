@@ -16,37 +16,16 @@ constexpr ll mod = 1000000007;
 
 inline void Parvez() { ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0); }
 template<class T>inline istream& operator>>(istream& in, vector<T>& v) { for (T& x : v) { in >> x; }return in; }template<class T>inline ostream& operator<<(ostream& out, vector<T>& v) { if (v.empty()) return out;for (ll i = 0;i < v.size() - 1;i++) { out << v[i] << ' '; }out << v[v.size() - 1];return out; }
-inline void inp() {}template<class H, class... T>inline void inp(H&& h, T &&...t) { cin >> h;inp(forward<T>(t)...); }inline void print() { cout << endl; }template<class H, class... T>inline void print(H&& h, T &&...t) { cout << h;if (sizeof...(t) != 0)cout << ' ';print(forward<T>(t)...); }
-
 
 
 
 void solution(ll& T) {
-    ll n, m; cin >> n >> m;
-    vll r(n, 0), c(m, 0);
-
-    for (int i = 0;i < n;i++) {
-        for (int j = 0;j < m;j++) {
-            ll x; cin >> x;
-            r[i] ^= x;
-            c[j] ^= x;
-        }
+    ll a, v, l, n; cin >> a >> v >> l >> n;
+    if(v>=2 && n<a && a-n>=2){
+        cout<<"YES"<<endl;
+    }else {
+        cout<<"NO"<<endl;
     }
-    ll s = 0;
-    for (int i = 0;i < n;i++) {
-        s += r[i];
-    }
-    for (int j = 0;j < m;j++) {
-        s += c[j];
-    }
-    ll ans = s;
-    for (int i = 0;i < n;i++) {
-        for (int j = 0;j < m;j++) {
-            ll cc = s - r[i] - c[j] + (r[i] ^ c[j]);
-            if (cc < ans) ans = cc;
-        }
-    }
-    cout << ans << endl;
 }
 
 signed main() {
